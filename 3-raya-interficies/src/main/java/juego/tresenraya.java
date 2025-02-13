@@ -28,6 +28,7 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener{
             for (int j = 0; j < 3; j++){
                 botones[i][j].setText("");
                 botones[i][j].setBackground(Color.white);
+                botones[i][j].setForeground(Color.white);
                 botones[i][j].setFocusable(false);
                 botones[i][j].addActionListener(this);
             }
@@ -273,7 +274,13 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener{
 
     // Colocar "X" o "O" según el turno
     botonPresionado.setText(turnoX ? "X" : "O");
-
+    if (turnoX){
+        botonPresionado.setBackground(Color.red);
+        botonPresionado.setForeground(Color.red);
+    }else {
+        botonPresionado.setBackground(Color.BLUE);
+        botonPresionado.setForeground(Color.blue);
+    }
     // Verificar si hay un ganador
     if (hayGanador()) {
         JOptionPane.showMessageDialog(this, "¡Gana " + (turnoX ? "X" : "O") + "!");
@@ -290,5 +297,6 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener{
 
     // Cambiar turno
     turnoX = !turnoX;
+    cambiarTexto();
     }
 }
