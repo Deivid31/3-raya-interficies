@@ -5,6 +5,7 @@
 package juego;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -24,20 +25,17 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener{
     private ArrayList<JButton> fila3 = new ArrayList<>();
     
     private void reiniciarJuego() {
-        for (int i = 0; i< 3; i++) {
-            for (int j = 0; j < 3; j++){
-                botones[i][j].setText("");
-                botones[i][j].setBackground(Color.white);
-                botones[i][j].setForeground(Color.white);
-                botones[i][j].setFocusable(false);
-                botones[i][j].addActionListener(this);
-            }
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            botones[i][j].setText(""); // Limpiar el texto
+            botones[i][j].setBackground(Color.white); // Restablecer color
+            botones[i][j].setForeground(Color.black); // Texto negro
         }
-        reiniciar_jButton.addActionListener(this);
-
-        turnoX = true;
-        cambiarTexto();
     }
+    turnoX = true; // Reiniciar turnos
+    cambiarTexto(); // Actualizar el texto del turno
+}
+
     private void cambiarTexto(){
         if (turnoX){
             jLabel_Turno.setText("Turno de: X");
@@ -59,6 +57,18 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener{
         botones[2][0] = jButton7;
         botones[2][1] = jButton8;
         botones[2][2] = jButton9;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                botones[i][j].addActionListener(this);
+            }
+        }
+        reiniciar_jButton.addActionListener(this);
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                botones[i][j].setPreferredSize(new Dimension(500, 500)); // Tamaño de 100x100 píxeles
+            }
+        }
+        pack();
         reiniciarJuego();
     }
 
@@ -118,32 +128,32 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener{
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
+                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel_Turno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton7)
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton8)
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton9))
+                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton1)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jButton2))
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jButton4)
+                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jButton5)))
+                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton6)
-                                    .addComponent(jButton3))))
+                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(70, 70, 70))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(reiniciar_jButton)
@@ -170,7 +180,7 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener{
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
                 .addComponent(reiniciar_jButton)
                 .addGap(25, 25, 25))
         );
