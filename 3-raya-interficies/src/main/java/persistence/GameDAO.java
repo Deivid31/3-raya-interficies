@@ -7,8 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import model.Usuari;
 
-public class RayaDAO {
+public class GameDAO {
     private Connection conectar() throws SQLException {
     String url = "jdbc:mysql://localhost:3306/3_raya_interficies";
     String user = "root";
@@ -20,6 +21,14 @@ public class RayaDAO {
     public void result(String email, String res) throws SQLException {
         Connection c = conectar();
         PreparedStatement ps = c.prepareStatement("UPDATE 3_raya_interficies SET "+res+" = "+res+" + 1 WHERE e-mail = "+email+";");
+        ps.executeUpdate();
+        ps.close();
+        desconectar(c);
+    }
+    
+    public void addUser(Usuari usuari) throws SQLException {
+        Connection c = conectar();
+        PreparedStatement ps = c.prepareStatement("INSERT INTO 3_raya_interficies VALUES ("+usuari.getEmail()+","+usuari.getNick()+","+usuari.getPasswd()+");");
         ps.executeUpdate();
         ps.close();
         desconectar(c);
