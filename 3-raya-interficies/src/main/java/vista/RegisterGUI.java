@@ -1,6 +1,7 @@
 package vista;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -35,10 +36,20 @@ public class RegisterGUI extends javax.swing.JFrame {
         jTextFieldEmail = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login");
+        setTitle("Registro");
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                formKeyReleased(evt);
+            }
+        });
 
         jButtonCreateUser.setText("Crear usuario");
         jButtonCreateUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonCreateUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCreateUserActionPerformed(evt);
+            }
+        });
 
         jButtonLogin.setText("Iniciar sesión");
         jButtonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -128,6 +139,20 @@ public class RegisterGUI extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
+    private void jButtonCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateUserActionPerformed
+        // TODO: Registrar usuario
+        JOptionPane.showMessageDialog(this, "Registro exitoso", "", JOptionPane.INFORMATION_MESSAGE);
+        parent.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonCreateUserActionPerformed
+
+    private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jButtonCreateUserActionPerformed(null);
+        }
+    }//GEN-LAST:event_formKeyReleased
+
+    
     /**
      * @param args the command line arguments
      */
