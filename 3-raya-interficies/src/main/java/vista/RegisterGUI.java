@@ -8,7 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import org.netbeans.validation.api.builtin.stringvalidation.StringValidators;
 import org.netbeans.validation.api.ui.ValidationGroup;
+import services.TranslationService;
 
 public class RegisterGUI extends javax.swing.JFrame {
     private ValidationGroup valGrp;
@@ -20,6 +22,10 @@ public class RegisterGUI extends javax.swing.JFrame {
         ImageIcon img = new ImageIcon("src\\main\\java\\images\\icon.png");
         setIconImage(img.getImage());
         valGrp = validationPanel.getValidationGroup();
+        
+        valGrp.add(jTextFieldEmail, StringValidators.EMAIL_ADDRESS);
+        valGrp.add(jTextFieldNick, StringValidators.REQUIRE_NON_EMPTY_STRING);
+        valGrp.add(jPasswordFieldPasswd, StringValidators.REQUIRE_NON_EMPTY_STRING);
     }
 
     @SuppressWarnings("unchecked")
@@ -71,6 +77,8 @@ public class RegisterGUI extends javax.swing.JFrame {
         jLabelEmail.setText("Email:");
 
         jTextFieldEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        validationPanel.setBorder(null);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,6 +153,7 @@ public class RegisterGUI extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Registro exitoso", "", JOptionPane.INFORMATION_MESSAGE);
         parent.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_jButtonCreateUserActionPerformed
 
     
