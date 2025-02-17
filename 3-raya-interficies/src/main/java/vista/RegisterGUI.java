@@ -2,22 +2,19 @@ package vista;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
-import java.sql.SQLException;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
-import model.Usuari;
+import org.netbeans.validation.api.builtin.stringvalidation.StringValidators;
 import org.netbeans.validation.api.ui.ValidationGroup;
-import org.openide.util.Exceptions;
-import persistence.GameDAO;
+import services.TranslationService;
 
 public class RegisterGUI extends javax.swing.JFrame {
     private ValidationGroup valGrp;
     private JFrame parent;
-    GameDAO gameDAO = new GameDAO();
 
     public RegisterGUI(JFrame parent) {
         initComponents();
@@ -25,6 +22,10 @@ public class RegisterGUI extends javax.swing.JFrame {
         ImageIcon img = new ImageIcon("src\\main\\java\\images\\icon.png");
         setIconImage(img.getImage());
         valGrp = validationPanel.getValidationGroup();
+        
+        valGrp.add(jTextFieldEmail, StringValidators.EMAIL_ADDRESS);
+        valGrp.add(jTextFieldNick, StringValidators.REQUIRE_NON_EMPTY_STRING);
+        valGrp.add(jPasswordFieldPasswd, StringValidators.REQUIRE_NON_EMPTY_STRING);
     }
 
     @SuppressWarnings("unchecked")
@@ -76,6 +77,8 @@ public class RegisterGUI extends javax.swing.JFrame {
         jLabelEmail.setText("Email:");
 
         jTextFieldEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        validationPanel.setBorder(null);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,13 +151,9 @@ public class RegisterGUI extends javax.swing.JFrame {
     private void jButtonCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateUserActionPerformed
         // TODO: Registrar usuario
         JOptionPane.showMessageDialog(this, "Registro exitoso", "", JOptionPane.INFORMATION_MESSAGE);
-        try {
-            gameDAO.addUser(new Usuari(jTextFieldEmail.getText(), jTextFieldNick.getText(), jPasswordFieldPasswd.getText()));
-        } catch (SQLException ex) {
-            Exceptions.printStackTrace(ex);
-        }
         parent.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_jButtonCreateUserActionPerformed
 
     
