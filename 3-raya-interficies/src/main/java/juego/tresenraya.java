@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -30,6 +31,7 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener{
             botones[i][j].setText(""); // Limpiar el texto
             botones[i][j].setBackground(Color.white); // Restablecer color
             botones[i][j].setForeground(Color.black); // Texto negro
+            botones[i][j].setBorder(new LineBorder(Color.BLACK,1));
         }
     }
     turnoX = true; // Reiniciar turnos
@@ -285,10 +287,10 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener{
     // Colocar "X" o "O" según el turno
     botonPresionado.setText(turnoX ? "X" : "O");
     if (turnoX){
-        botonPresionado.setBackground(Color.red);
+        botonPresionado.setBorder(new LineBorder(Color.RED,2));
         botonPresionado.setForeground(Color.red);
     }else {
-        botonPresionado.setBackground(Color.BLUE);
+        botonPresionado.setBorder(new LineBorder(Color.BLUE,2));
         botonPresionado.setForeground(Color.blue);
     }
     // Verificar si hay un ganador

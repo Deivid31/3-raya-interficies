@@ -4,6 +4,8 @@
  */
 package juego;
 
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Admin
@@ -14,8 +16,8 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        tresenraya juego = new tresenraya();
-        juego.setVisible(true);
+        SwingUtilities.invokeLater(() -> new tresenraya().setVisible(true));
+
     }
     
 }
