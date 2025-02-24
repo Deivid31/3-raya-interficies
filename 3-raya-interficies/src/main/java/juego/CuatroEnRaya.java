@@ -12,7 +12,7 @@ public class CuatroEnRaya extends JFrame implements ActionListener {
     private final int COLUMNAS = 7;
     private JButton[][] botones = new JButton[FILAS][COLUMNAS];
 
-    public CuatroEnRaya() {
+    public CuatroEnRaya(String user) {
         setTitle("4 en Raya");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(FILAS, COLUMNAS));
@@ -37,8 +37,9 @@ public class CuatroEnRaya extends JFrame implements ActionListener {
             for (int i = FILAS - 1; i >= 0; i--) {
                 if (e.getSource() == botones[i][j] && botones[i][j].getText().isEmpty()) {
                     botones[i][j].setText(turnoX ? "X" : "O");
-                    botones[i][j].setForeground(turnoX ? Color.RED : Color.BLUE);
+                    botones[i][j].setForeground(Color.WHITE);
                     botones[i][j].setBackground(turnoX ? Color.RED : Color.BLUE);
+                    //botones[i][j].setBorder(new LineBorder(turnoX ? Color.RED : Color.BLUE, 1));
                     if (hayGanador()) {
                         JOptionPane.showMessageDialog(this, "¡Gana " + (turnoX ? "X" : "O") + "!");
                         reiniciarJuego();
@@ -86,13 +87,11 @@ public class CuatroEnRaya extends JFrame implements ActionListener {
             for (int j = 0; j < COLUMNAS; j++) {
                 botones[i][j].setText("");
                 botones[i][j].setBackground(Color.WHITE);
+                botones[i][j].setForeground(Color.BLACK);
+                botones[i][j].setBorder(new LineBorder(Color.BLACK, 1));
             }
         }
         turnoX = true;
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new CuatroEnRaya().setVisible(true));
     }
 
 
