@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import model.Usuari;
 
 public class GameDAO {
@@ -18,9 +17,9 @@ public class GameDAO {
     return c;
     }
     
-    public void result(String email, String res) throws SQLException {
+    public void result(String email, int res) throws SQLException {
         Connection c = conectar();
-        PreparedStatement ps = c.prepareStatement("UPDATE 3_raya_interficies SET "+res+" = "+res+" + 1 WHERE e-mail = "+email+";");
+        PreparedStatement ps = c.prepareStatement("UPDATE 3_raya_interficies SET juegos = juegos + 1, victorias = "+res+" WHERE email = '"+email+"';");
         ps.executeUpdate();
         ps.close();
         desconectar(c);
@@ -28,19 +27,33 @@ public class GameDAO {
     
     public void addUser(Usuari usuari) throws SQLException {
         Connection c = conectar();
-        PreparedStatement ps = c.prepareStatement("INSERT INTO 3_raya_interficies VALUES ("+usuari.getEmail()+","+usuari.getNick()+","+usuari.getPasswd()+");");
+        PreparedStatement ps = c.prepareStatement("INSERT INTO usuarios (email, nick, passwd) VALUES ('"+usuari.getEmail()+"','"+usuari.getNick()+"','"+usuari.getPasswd()+"');");
         ps.executeUpdate();
         ps.close();
         desconectar(c);
     }
     
-    public void getUser(String email) throws SQLException {
+    public boolean checkUser(String email) throws SQLException {
         Connection c = conectar();
-        String query = "SELECT * FROM usuarios WHERE e-mail = "+email+";";
+        Statement st = c.createStatement();
+        String query = "SELECT * FROM usuarios WHERE email = '"+email+"';";
+        ResultSet rs = st.executeQuery(query);
+        if (rs.next()) {
+            return true;
+        }
+        rs.close();
+        st.close();
+        desconectar(c);
+        return false;
+    }
+    
+    public void getUsers(String email) throws SQLException {
+        Connection c = conectar();
+        String query = "SELECT * FROM usuarios WHERE email = "+email+";";
         Statement st = c.createStatement();
         ResultSet rs = st.executeQuery(query);
         while (rs.next()) {
-            String em = rs.getString("e-mail");
+            String em = rs.getString("email");
             String nick = rs.getString("nick");
             String passwd = rs.getString("passwd");
             //ArrayList stats = rs.getArray("victoria, derrota, empate");

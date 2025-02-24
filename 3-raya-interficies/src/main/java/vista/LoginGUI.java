@@ -1,13 +1,16 @@
 package vista;
 
 import javax.swing.ImageIcon;
+import persistence.GameDAO;
 
 public class LoginGUI extends javax.swing.JFrame {
+    private GameDAO gameDAO;
 
     public LoginGUI() {
         initComponents();
         ImageIcon img = new ImageIcon("src\\main\\java\\images\\icon.png");
         setIconImage(img.getImage());
+        gameDAO = new GameDAO();
     }
 
     @SuppressWarnings("unchecked")
@@ -28,6 +31,11 @@ public class LoginGUI extends javax.swing.JFrame {
 
         jButton1.setText("Iniciar sesión");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Registrarse");
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -105,6 +113,10 @@ public class LoginGUI extends javax.swing.JFrame {
         registerGUI.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
