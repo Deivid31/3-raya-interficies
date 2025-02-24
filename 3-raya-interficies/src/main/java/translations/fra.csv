@@ -1,0 +1,16 @@
+LANGUAGE.ARAB,Arabe
+LANGUAGE.CATALAN,Catalan
+LANGUAGE.GERMAN,Allemand
+LANGUAGE.ENGLISH,Anglais
+LANGUAGE.SPANISH,Espagnol
+LANGUAGE.FRENCH,Français
+LANGUAGE.RUSSIAN,Russe
+TITLE.LOGIN,Connexion
+TITLE.REGISTER,Inscription utilisateur
+NICKNAME,Pseudo
+PASSWORD,Mot de passe
+EMAIL,E-mail
+LOGIN,Se connecter
+REGISTER,S'inscrire
+CREATEUSER,Créer un utilisateur
+SELECTLANGUAGE,Sélectionner la langue

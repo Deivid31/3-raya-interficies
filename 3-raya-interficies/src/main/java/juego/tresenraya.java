@@ -28,14 +28,14 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener{
     private void reiniciarJuego() {
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            botones[i][j].setText(""); // Limpiar el texto
-            botones[i][j].setBackground(Color.white); // Restablecer color
-            botones[i][j].setForeground(Color.black); // Texto negro
+            botones[i][j].setText("");
+            botones[i][j].setBackground(Color.white);
+            botones[i][j].setForeground(Color.black);
             botones[i][j].setBorder(new LineBorder(Color.BLACK,1));
         }
     }
-    turnoX = true; // Reiniciar turnos
-    cambiarTexto(); // Actualizar el texto del turno
+    turnoX = true;
+    cambiarTexto();
 }
 
     private void cambiarTexto(){
