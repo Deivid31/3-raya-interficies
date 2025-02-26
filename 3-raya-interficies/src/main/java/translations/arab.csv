@@ -1,0 +1,16 @@
+{LANGUAGE.ARAB},عربي
+{LANGUAGE.CATALAN},الكاتالانية
+{LANGUAGE.GERMAN},ألمانية
+{LANGUAGE.ENGLISH},إنجليزي
+{LANGUAGE.SPANISH},إسباني
+{LANGUAGE.FRENCH},فرنسي
+{LANGUAGE.RUSSIAN},الروسية
+{TITLE.LOGIN},تسجيل الدخول
+{TITLE.REGISTER},تسجيل المستخدم
+{NICKNAME},اسم مستعار
+{PASSWORD},كلمة المرور
+{EMAIL},البريد الإلكتروني
+{LOGIN},تسجيل الدخول
+{REGISTER},التسجيل
+{CREATEUSER},إنشاء مستخدم
+{SELECTLANGUAGE},اختر اللغة

@@ -1,0 +1,16 @@
+{LANGUAGE.ARAB},Árabe
+{LANGUAGE.CATALAN},Catalán
+{LANGUAGE.GERMAN},Alemán
+{LANGUAGE.ENGLISH},Inglés
+{LANGUAGE.SPANISH},Español
+{LANGUAGE.FRENCH},Francés
+{LANGUAGE.RUSSIAN},Ruso
+{TITLE.LOGIN},Inicio de sesión
+{TITLE.REGISTER},Registro de usuario
+{NICKNAME},Apodo
+{PASSWORD},Contraseña
+{EMAIL},Email
+{LOGIN},Iniciar sesión
+{REGISTER},Registrarse
+{CREATEUSER},Crear usuario
+{SELECTLANGUAGE},Seleccionar idioma

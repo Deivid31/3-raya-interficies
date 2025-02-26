@@ -2,27 +2,35 @@ package vista;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import model.Usuari;
 import org.netbeans.validation.api.builtin.stringvalidation.StringValidators;
 import org.netbeans.validation.api.ui.ValidationGroup;
+import org.openide.util.Exceptions;
+import persistence.GameDAO;
 import services.TranslationService;
 
 public class RegisterGUI extends javax.swing.JFrame {
     private ValidationGroup valGrp;
     private JFrame parent;
+    private GameDAO gameDAO;
+    TranslationService translationService;
 
-    public RegisterGUI(JFrame parent) {
+    public RegisterGUI(JFrame parent, TranslationService translationService) {
         initComponents();
         this.parent = parent;
+        this.translationService = translationService;
         ImageIcon img = new ImageIcon("src\\main\\java\\images\\icon.png");
         setIconImage(img.getImage());
+        translatePage();
         valGrp = validationPanel.getValidationGroup();
-        
+        gameDAO = new GameDAO();
         valGrp.add(jTextFieldEmail, StringValidators.EMAIL_ADDRESS);
         valGrp.add(jTextFieldNick, StringValidators.REQUIRE_NON_EMPTY_STRING);
         valGrp.add(jPasswordFieldPasswd, StringValidators.REQUIRE_NON_EMPTY_STRING);
@@ -46,6 +54,7 @@ public class RegisterGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
+        setResizable(false);
 
         jButtonCreateUser.setText("Crear usuario");
         jButtonCreateUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -95,7 +104,7 @@ public class RegisterGUI extends javax.swing.JFrame {
                     .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(validationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -149,55 +158,31 @@ public class RegisterGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jButtonCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateUserActionPerformed
-        // TODO: Registrar usuario
-        JOptionPane.showMessageDialog(this, "Registro exitoso", "", JOptionPane.INFORMATION_MESSAGE);
-        parent.setVisible(true);
-        this.dispose();
-        
+        try {
+            if(gameDAO.checkUser(jTextFieldEmail.getText().toLowerCase())) {
+                //Lib errores ns
+            } else {
+                gameDAO.addUser(new Usuari(jTextFieldEmail.getText(), jTextFieldNick.getText().toLowerCase(), jPasswordFieldPasswd.getText()));
+                JOptionPane.showMessageDialog(this, "Registro exitoso", "", JOptionPane.INFORMATION_MESSAGE);
+                parent.setVisible(true);
+                this.dispose();
+            }
+        } catch (SQLException ex) {
+            Exceptions.printStackTrace(ex);
+        }
     }//GEN-LAST:event_jButtonCreateUserActionPerformed
 
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegisterGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegisterGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegisterGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegisterGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+    private void translatePage() {
+        this.setTitle(translationService.translate("{TITLE.REGISTER}"));
+        
+
+        
+        jButtonLogin.setText(translationService.translate("{LOGIN}"));
+        jButtonCreateUser.setText(translationService.translate("{CREATEUSER}"));
+        
+        jLabelEmail.setText(translationService.translate("{EMAIL}") + ":");
+        jLabelNick.setText(translationService.translate("{NICKNAME}") + ":");
+        jLabelPasswd.setText(translationService.translate("{PASSWORD}") + ":");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,0 +1,16 @@
+{LANGUAGE.ARAB},Arabisch
+{LANGUAGE.CATALAN},Katalanisch
+{LANGUAGE.GERMAN},Deutsch
+{LANGUAGE.ENGLISH},Englisch
+{LANGUAGE.SPANISH},Spanisch
+{LANGUAGE.FRENCH},Französisch
+{LANGUAGE.RUSSIAN},Russisch
+{TITLE.LOGIN},Anmeldung
+{TITLE.REGISTER},Benutzerregistrierung
+{NICKNAME},Spitzname
+{PASSWORD},Passwort
+{EMAIL},E-Mail
+{LOGIN},Einloggen
+{REGISTER},Registrieren
+{CREATEUSER},Benutzer erstellen
+{SELECTLANGUAGE},Sprache auswählen

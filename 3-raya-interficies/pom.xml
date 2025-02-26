@@ -42,5 +42,10 @@
             <artifactId>openide-modules</artifactId>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.netbeans.validation</groupId>
+            <artifactId>mysql-connector-j-9.2.0</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 </project>
