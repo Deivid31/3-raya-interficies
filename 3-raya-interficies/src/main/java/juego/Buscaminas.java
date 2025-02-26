@@ -10,8 +10,7 @@ package juego;
  */
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.Random;
 
 public class Buscaminas extends JDialog {
@@ -21,6 +20,7 @@ public class Buscaminas extends JDialog {
     private JButton[][] botones;
     private boolean[][] esMina;
     private boolean[][] revelado;
+    private boolean[][] marcado;
     private int celdasReveladas;
     
     public Buscaminas(JFrame parent) {
@@ -37,6 +37,7 @@ public class Buscaminas extends JDialog {
         botones = new JButton[filas][columnas];
         esMina = new boolean[filas][columnas];
         revelado = new boolean[filas][columnas];
+        marcado = new boolean[filas][columnas];
         celdasReveladas = 0;
         
         getContentPane().removeAll();
@@ -53,7 +54,16 @@ public class Buscaminas extends JDialog {
                 botones[i][j] = new JButton();
                 botones[i][j].setFont(new Font("Arial", Font.BOLD, 14));
                 final int x = i, y = j;
-                botones[i][j].addActionListener(e -> revelarCelda(x, y));
+                botones[i][j].addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        if (SwingUtilities.isRightMouseButton(e)) {
+                            marcarCelda(x, y);
+                        } else {
+                            revelarCelda(x, y);
+                        }
+                    }
+                });
                 add(botones[i][j]);
             }
         }
@@ -73,7 +83,7 @@ public class Buscaminas extends JDialog {
     }
     
     private void revelarCelda(int x, int y) {
-        if (revelado[x][y]) return;
+        if (revelado[x][y] || marcado[x][y]) return;
         revelado[x][y] = true;
         celdasReveladas++;
         
@@ -105,6 +115,18 @@ public class Buscaminas extends JDialog {
         }
     }
     
+    private void marcarCelda(int x, int y) {
+        if (revelado[x][y]) return;
+        
+        if (marcado[x][y]) {
+            botones[x][y].setText("");
+            botones[x][y].setBackground(null);
+        } else {
+            botones[x][y].setBackground(Color.GREEN);
+        }
+        marcado[x][y] = !marcado[x][y];
+    }
+    
     private void mostrarMinas() {
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
@@ -132,6 +154,7 @@ public class Buscaminas extends JDialog {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new Buscaminas(null));
     }
+
 
 
     /**
