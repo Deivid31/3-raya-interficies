@@ -4,9 +4,11 @@ import java.awt.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import services.TranslationService;
+import persistence.GameDAO;
 
 public class LoginGUI extends javax.swing.JFrame {
     TranslationService translationService;
+    private GameDAO gameDAO;
 
     public LoginGUI() {
         initComponents();
@@ -14,6 +16,7 @@ public class LoginGUI extends javax.swing.JFrame {
         setIconImage(img.getImage());
         translationService = new TranslationService();
         translatePage();
+        gameDAO = new GameDAO();
     }
 
     @SuppressWarnings("unchecked")
@@ -33,6 +36,7 @@ public class LoginGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setResizable(false);
+
 
         jButtonLogin.setText("Iniciar sesión");
         jButtonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -136,6 +140,10 @@ public class LoginGUI extends javax.swing.JFrame {
         
         translatePage();
     }//GEN-LAST:event_jComboBoxLangPopupMenuWillBecomeInvisible
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

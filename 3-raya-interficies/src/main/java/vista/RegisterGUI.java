@@ -2,19 +2,24 @@ package vista;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import model.Usuari;
 import org.netbeans.validation.api.builtin.stringvalidation.StringValidators;
 import org.netbeans.validation.api.ui.ValidationGroup;
+import org.openide.util.Exceptions;
+import persistence.GameDAO;
 import services.TranslationService;
 
 public class RegisterGUI extends javax.swing.JFrame {
     private ValidationGroup valGrp;
     private JFrame parent;
+    private GameDAO gameDAO;
     TranslationService translationService;
 
     public RegisterGUI(JFrame parent, TranslationService translationService) {
@@ -25,7 +30,7 @@ public class RegisterGUI extends javax.swing.JFrame {
         setIconImage(img.getImage());
         translatePage();
         valGrp = validationPanel.getValidationGroup();
-        
+        gameDAO = new GameDAO();
         valGrp.add(jTextFieldEmail, StringValidators.EMAIL_ADDRESS);
         valGrp.add(jTextFieldNick, StringValidators.REQUIRE_NON_EMPTY_STRING);
         valGrp.add(jPasswordFieldPasswd, StringValidators.REQUIRE_NON_EMPTY_STRING);
@@ -153,11 +158,18 @@ public class RegisterGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jButtonCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateUserActionPerformed
-        // TODO: Registrar usuario
-        JOptionPane.showMessageDialog(this, "Registro exitoso", "", JOptionPane.INFORMATION_MESSAGE);
-        parent.setVisible(true);
-        this.dispose();
-        
+        try {
+            if(gameDAO.checkUser(jTextFieldEmail.getText().toLowerCase())) {
+                //Lib errores ns
+            } else {
+                gameDAO.addUser(new Usuari(jTextFieldEmail.getText(), jTextFieldNick.getText().toLowerCase(), jPasswordFieldPasswd.getText()));
+                JOptionPane.showMessageDialog(this, "Registro exitoso", "", JOptionPane.INFORMATION_MESSAGE);
+                parent.setVisible(true);
+                this.dispose();
+            }
+        } catch (SQLException ex) {
+            Exceptions.printStackTrace(ex);
+        }
     }//GEN-LAST:event_jButtonCreateUserActionPerformed
 
     private void translatePage() {
