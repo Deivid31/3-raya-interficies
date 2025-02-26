@@ -32,6 +32,7 @@ public class LoginGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
+        setResizable(false);
 
         jButtonLogin.setText("Iniciar sesión");
         jButtonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -181,23 +182,23 @@ public class LoginGUI extends javax.swing.JFrame {
     
     
     private void translatePage() {
-        this.setTitle(translationService.translate("TITLE.LOGIN"));
+        this.setTitle(translationService.translate("{TITLE.LOGIN}"));
         
         jComboBoxLang.removeAllItems();
-        jComboBoxLang.addItem(translationService.translate("SELECTLANGUAGE") + "...");
-        jComboBoxLang.addItem("ARB| " + translationService.translate("LANGUAGE.ARAB"));
-        jComboBoxLang.addItem("CAT| " + translationService.translate("LANGUAGE.CATALAN"));
-        jComboBoxLang.addItem("ENG| " + translationService.translate("LANGUAGE.ENGLISH"));
-        jComboBoxLang.addItem("ESP| " + translationService.translate("LANGUAGE.SPANISH"));
-        jComboBoxLang.addItem("FRE| " + translationService.translate("LANGUAGE.FRENCH"));
-        jComboBoxLang.addItem("GER| " + translationService.translate("LANGUAGE.GERMAN"));
-        jComboBoxLang.addItem("RUS| " + translationService.translate("LANGUAGE.RUSSIAN"));
+        jComboBoxLang.addItem(translationService.translate("{SELECTLANGUAGE}") + "...");
+        jComboBoxLang.addItem("ARB| " + translationService.translate("{LANGUAGE.ARAB}"));
+        jComboBoxLang.addItem("CAT| " + translationService.translate("{LANGUAGE.CATALAN}"));
+        jComboBoxLang.addItem("ENG| " + translationService.translate("{LANGUAGE.ENGLISH}"));
+        jComboBoxLang.addItem("ESP| " + translationService.translate("{LANGUAGE.SPANISH}"));
+        jComboBoxLang.addItem("FRE| " + translationService.translate("{LANGUAGE.FRENCH}"));
+        jComboBoxLang.addItem("GER| " + translationService.translate("{LANGUAGE.GERMAN}"));
+        jComboBoxLang.addItem("RUS| " + translationService.translate("{LANGUAGE.RUSSIAN}"));
         
-        jButtonLogin.setText(translationService.translate("LOGIN"));
-        jButtonRegister.setText(translationService.translate("REGISTER"));
+        jButtonLogin.setText(translationService.translate("{LOGIN}"));
+        jButtonRegister.setText(translationService.translate("{REGISTER}"));
         
-        jLabelNick.setText(translationService.translate("NICKNAME") + ":");
-        jLabelPasswd.setText(translationService.translate("PASSWORD") + ":");
+        jLabelNick.setText(translationService.translate("{NICKNAME}") + ":");
+        jLabelPasswd.setText(translationService.translate("{PASSWORD}") + ":");
     }
     
 

@@ -49,6 +49,7 @@ public class RegisterGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
+        setResizable(false);
 
         jButtonCreateUser.setText("Crear usuario");
         jButtonCreateUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -98,7 +99,7 @@ public class RegisterGUI extends javax.swing.JFrame {
                     .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(validationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -160,16 +161,16 @@ public class RegisterGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCreateUserActionPerformed
 
     private void translatePage() {
-        this.setTitle(translationService.translate("TITLE.REGISTER"));
+        this.setTitle(translationService.translate("{TITLE.REGISTER}"));
         
 
         
-        jButtonLogin.setText(translationService.translate("LOGIN"));
-        jButtonCreateUser.setText(translationService.translate("CREATEUSER"));
+        jButtonLogin.setText(translationService.translate("{LOGIN}"));
+        jButtonCreateUser.setText(translationService.translate("{CREATEUSER}"));
         
-        jLabelEmail.setText(translationService.translate("EMAIL") + ":");
-        jLabelNick.setText(translationService.translate("NICKNAME") + ":");
-        jLabelPasswd.setText(translationService.translate("PASSWORD") + ":");
+        jLabelEmail.setText(translationService.translate("{EMAIL}") + ":");
+        jLabelNick.setText(translationService.translate("{NICKNAME}") + ":");
+        jLabelPasswd.setText(translationService.translate("{PASSWORD}") + ":");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
