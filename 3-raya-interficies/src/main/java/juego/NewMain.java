@@ -16,9 +16,10 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        tresenraya tres = new tresenraya();
         //SwingUtilities.invokeLater(() -> new tresenraya().setVisible(true));
-        SwingUtilities.invokeLater(() -> new CuatroEnRaya("").setVisible(true));
-
+        //SwingUtilities.invokeLater(() -> new CuatroEnRaya("").setVisible(true));
+        SwingUtilities.invokeLater(() -> new Buscaminas(tres,"").setVisible(true));
     }
     
 }
