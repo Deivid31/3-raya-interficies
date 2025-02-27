@@ -160,7 +160,7 @@ public class RegisterGUI extends javax.swing.JFrame {
     private void jButtonCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateUserActionPerformed
         try {
             if(gameDAO.checkUser(jTextFieldEmail.getText().toLowerCase())) {
-                //Lib errores ns
+                JOptionPane.showMessageDialog(this, "ERROR: Ya existe un usuario con este correo", "", JOptionPane.WARNING_MESSAGE);
             } else {
                 gameDAO.addUser(new Usuari(jTextFieldEmail.getText(), jTextFieldNick.getText().toLowerCase(), jPasswordFieldPasswd.getText()));
                 JOptionPane.showMessageDialog(this, "Registro exitoso", "", JOptionPane.INFORMATION_MESSAGE);

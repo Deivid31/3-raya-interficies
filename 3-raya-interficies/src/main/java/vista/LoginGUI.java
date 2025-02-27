@@ -1,8 +1,11 @@
 package vista;
 
 import java.awt.List;
+import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import model.Usuari;
+import org.openide.util.Exceptions;
 import services.TranslationService;
 import persistence.GameDAO;
 
@@ -142,7 +145,17 @@ public class LoginGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxLangPopupMenuWillBecomeInvisible
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        try {
+            if(!gameDAO.checkUser(jTextFieldNick.getText().toLowerCase())) {
+                JOptionPane.showMessageDialog(this, "ERROR: No existe ningun usuario con este correo", "", JOptionPane.WARNING_MESSAGE);
+            } else {
+                Usuari jugador = gameDAO.getInfoUser(jTextFieldNick.getText().toLowerCase());
+                JOptionPane.showMessageDialog(this, "Bienvenido: "+jugador.getNick(), "", JOptionPane.INFORMATION_MESSAGE);
+                this.dispose();
+            }
+        } catch (SQLException ex) {
+            Exceptions.printStackTrace(ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
    
     
