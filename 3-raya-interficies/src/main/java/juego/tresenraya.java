@@ -4,14 +4,18 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
+import persistence.GameDAO;
 import services.TranslationService;
 
 public class tresenraya extends javax.swing.JFrame implements ActionListener {
+    private final String user;
+    private GameDAO dao = new GameDAO();
     private JFrame parent;
     private TranslationService translationService;
     private boolean turnoX = true;
@@ -47,6 +51,7 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener {
     public tresenraya(JFrame parent, TranslationService translationService, String user) {
         this.parent = parent;
         this.translationService = translationService;
+        this.user = user;
         
         initComponents();
         botones[0][0] = jButton1;
@@ -264,6 +269,12 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener {
     // Verificar si hay un ganador
     if (hayGanador()) {
         JOptionPane.showMessageDialog(this, "¡Gana " + (turnoX ? "X" : "O") + "!");
+        try {
+            if (turnoX) dao.result(user, 1);
+            else dao.result(user, 0);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+        }
         reiniciarJuego();
         return;
     }
@@ -271,6 +282,11 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener {
     // Verificar si hay empate
     if (esEmpate()) {
         JOptionPane.showMessageDialog(this, "¡Empate!");
+        try {
+            dao.result(user, 0);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+        }
         reiniciarJuego();
         return;
     }

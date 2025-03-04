@@ -3,13 +3,17 @@ package juego;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import persistence.GameDAO;
 import services.TranslationService;
 
 public class CuatroEnRaya extends JFrame implements ActionListener {
     private JFrame parent;
     private TranslationService translationService;
+    private final String user;
+    private GameDAO dao = new GameDAO();
     private boolean turnoX = true;
     private final int FILAS = 6;
     private final int COLUMNAS = 7;
@@ -18,6 +22,7 @@ public class CuatroEnRaya extends JFrame implements ActionListener {
     public CuatroEnRaya(JFrame parent, TranslationService translationService, String user) {
         this.parent = parent;
         this.translationService = translationService;
+        this.user = user;
         
         setTitle("4 en Raya");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,7 +52,13 @@ public class CuatroEnRaya extends JFrame implements ActionListener {
                     botones[i][j].setBackground(turnoX ? Color.RED : Color.BLUE);
                     //botones[i][j].setBorder(new LineBorder(turnoX ? Color.RED : Color.BLUE, 1));
                     if (hayGanador()) {
-                        JOptionPane.showMessageDialog(this, "¡Gana " + (turnoX ? "X" : "O") + "!");
+                        JOptionPane.showMessageDialog(this, "Â¡Gana " + (turnoX ? "X" : "O") + "!");
+                        try {
+                            if (turnoX) dao.result(user, 1);
+                            else dao.result(user, 0);
+                        } catch (SQLException ex) {
+                            JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+                        }
                         reiniciarJuego();
                         return;
                     }
