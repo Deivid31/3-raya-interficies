@@ -5,14 +5,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import services.TranslationService;
 
 public class CuatroEnRaya extends JFrame implements ActionListener {
+    private JFrame parent;
+    private TranslationService translationService;
     private boolean turnoX = true;
     private final int FILAS = 6;
     private final int COLUMNAS = 7;
     private JButton[][] botones = new JButton[FILAS][COLUMNAS];
 
-    public CuatroEnRaya(String user) {
+    public CuatroEnRaya(JFrame parent, TranslationService translationService, String user) {
+        this.parent = parent;
+        this.translationService = translationService;
+        
         setTitle("4 en Raya");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(FILAS, COLUMNAS));

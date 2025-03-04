@@ -7,6 +7,7 @@
 {LANGUAGE.RUSSIAN},Rus
 {TITLE.LOGIN},Inici de sessió
 {TITLE.REGISTER},Registre d'usuari
+{TITLE.GAMESELECTOR},
 {NICKNAME},Pseudonim
 {PASSWORD},Contrasenya
 {EMAIL},Correu
@@ -14,3 +15,6 @@
 {REGISTER},Registrar-se
 {CREATEUSER},Crear usuari
 {SELECTLANGUAGE},Seleccionar idioma
+{TICTACTOE},
+{CONNECTFOUR},
+{MINESWEEPER},

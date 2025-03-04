@@ -1,19 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
 package juego;
 
-/**
- *
- * @author Admin
- */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
+import services.TranslationService;
 
 public class Buscaminas extends JDialog {
+    private JFrame parent;
+    private TranslationService translationService;
     private final int filas = 8;
     private final int columnas = 8;
     private final int minas = 10;
@@ -23,11 +18,15 @@ public class Buscaminas extends JDialog {
     private boolean[][] marcado;
     private int celdasReveladas;
     
-    public Buscaminas(JFrame parent, String user) {
+    public Buscaminas(JFrame parent, TranslationService translationService, String user) {
         super(parent, "Buscaminas", true);
+        this.parent = parent;
+        this.translationService = translationService;
+        
         setSize(400, 400);
         setLayout(new GridLayout(filas, columnas));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
         
         iniciarJuego();
         setVisible(true);

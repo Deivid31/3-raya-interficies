@@ -7,6 +7,7 @@
 {LANGUAGE.RUSSIAN},Russisch
 {TITLE.LOGIN},Anmeldung
 {TITLE.REGISTER},Benutzerregistrierung
+{TITLE.GAMESELECTOR},
 {NICKNAME},Spitzname
 {PASSWORD},Passwort
 {EMAIL},E-Mail
@@ -14,3 +15,6 @@
 {REGISTER},Registrieren
 {CREATEUSER},Benutzer erstellen
 {SELECTLANGUAGE},Sprache auswählen
+{TICTACTOE},
+{CONNECTFOUR},
+{MINESWEEPER},

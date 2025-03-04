@@ -5,6 +5,8 @@ import java.awt.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import juego.Buscaminas;
+import juego.CuatroEnRaya;
 import services.TranslationService;
 import persistence.GameDAO;
 
@@ -19,7 +21,7 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         this.translationService = translationService;
         ImageIcon img = new ImageIcon("src\\main\\java\\images\\icon.png");
         setIconImage(img.getImage());
-        translationService = new TranslationService();
+        this.translationService = translationService;
         translatePage();
         
         //Iconos
@@ -173,11 +175,13 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3RayaActionPerformed
 
     private void jButton4RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4RayaActionPerformed
-        // TODO add your handling code here:
+        CuatroEnRaya connect4 = new CuatroEnRaya(this, translationService, "");
+        //TODO: Pasarle usuario
     }//GEN-LAST:event_jButton4RayaActionPerformed
 
     private void jButtonMineSweeperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMineSweeperActionPerformed
-        // TODO add your handling code here:
+        Buscaminas minesweeper = new Buscaminas(this, translationService, "");
+        //TODO: Pasarle usuario
     }//GEN-LAST:event_jButtonMineSweeperActionPerformed
    
     

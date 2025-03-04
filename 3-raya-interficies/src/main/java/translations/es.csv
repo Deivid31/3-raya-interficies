@@ -7,6 +7,7 @@
 {LANGUAGE.RUSSIAN},Ruso
 {TITLE.LOGIN},Inicio de sesión
 {TITLE.REGISTER},Registro de usuario
+{TITLE.GAMESELECTOR},Selección de juego
 {NICKNAME},Apodo
 {PASSWORD},Contraseña
 {EMAIL},Email
@@ -14,3 +15,6 @@
 {REGISTER},Registrarse
 {CREATEUSER},Crear usuario
 {SELECTLANGUAGE},Seleccionar idioma
+{TICTACTOE},3 en Raya
+{CONNECTFOUR},Conecta 4
+{MINESWEEPER},Busca Minas

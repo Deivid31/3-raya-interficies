@@ -7,6 +7,7 @@
 {LANGUAGE.RUSSIAN},Russian
 {TITLE.LOGIN},Login
 {TITLE.REGISTER},User Registration
+{TITLE.GAMESELECTOR},Game Selector
 {NICKNAME},Nickname
 {PASSWORD},Password
 {EMAIL},Email
@@ -14,3 +15,6 @@
 {REGISTER},Register
 {CREATEUSER},Create User
 {SELECTLANGUAGE},Select Language
+{TICTACTOE},Tic Tac Toe
+{CONNECTFOUR},Connect 4
+{MINESWEEPER},Minesweeper

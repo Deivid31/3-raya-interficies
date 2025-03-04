@@ -7,6 +7,7 @@
 {LANGUAGE.RUSSIAN},الروسية
 {TITLE.LOGIN},تسجيل الدخول
 {TITLE.REGISTER},تسجيل المستخدم
+{TITLE.GAMESELECTOR},
 {NICKNAME},اسم مستعار
 {PASSWORD},كلمة المرور
 {EMAIL},البريد الإلكتروني
@@ -14,3 +15,6 @@
 {REGISTER},التسجيل
 {CREATEUSER},إنشاء مستخدم
 {SELECTLANGUAGE},اختر اللغة
+{TICTACTOE},
+{CONNECTFOUR},
+{MINESWEEPER},

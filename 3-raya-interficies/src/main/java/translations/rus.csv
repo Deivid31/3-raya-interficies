@@ -7,6 +7,7 @@
 {LANGUAGE.RUSSIAN},Русский
 {TITLE.LOGIN},Вход
 {TITLE.REGISTER},Регистрация пользователя
+{TITLE.GAMESELECTOR},
 {NICKNAME},Псевдоним
 {PASSWORD},Пароль
 {EMAIL},Электронная почта
@@ -14,3 +15,6 @@
 {REGISTER},Зарегистрироваться
 {CREATEUSER},Создать пользователя
 {SELECTLANGUAGE},Выбрать язык
+{TICTACTOE},
+{CONNECTFOUR},
+{MINESWEEPER},
