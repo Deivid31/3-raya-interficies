@@ -23,7 +23,7 @@ public class Buscaminas extends JDialog {
     private boolean[][] marcado;
     private int celdasReveladas;
     
-    public Buscaminas(JFrame parent) {
+    public Buscaminas(JFrame parent, String user) {
         super(parent, "Buscaminas", true);
         setSize(400, 400);
         setLayout(new GridLayout(filas, columnas));
@@ -52,7 +52,8 @@ public class Buscaminas extends JDialog {
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
                 botones[i][j] = new JButton();
-                botones[i][j].setFont(new Font("Arial", Font.BOLD, 14));
+                botones[i][j].setBackground(new Color(173, 216, 230));
+                botones[i][j].setFont(new Font("Arial", Font.BOLD, 18));
                 final int x = i, y = j;
                 botones[i][j].addMouseListener(new MouseAdapter() {
                     @Override
@@ -89,7 +90,7 @@ public class Buscaminas extends JDialog {
         
         if (esMina[x][y]) {
             mostrarMinas();
-            JOptionPane.showMessageDialog(this, "¡Perdiste!");
+            JOptionPane.showMessageDialog(this, "¡Has perdido :)!");
             iniciarJuego();
             return;
         }
@@ -110,7 +111,7 @@ public class Buscaminas extends JDialog {
         }
         
         if (celdasReveladas == (filas * columnas - minas)) {
-            JOptionPane.showMessageDialog(this, "¡Ganaste!");
+            JOptionPane.showMessageDialog(this, "¡Has ganado!");
             iniciarJuego();
         }
     }
@@ -149,10 +150,6 @@ public class Buscaminas extends JDialog {
             }
         }
         return count;
-    }
-    
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Buscaminas(null));
     }
 
 
