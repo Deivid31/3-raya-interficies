@@ -20,7 +20,7 @@ public class RegisterGUI extends javax.swing.JFrame {
     private ValidationGroup valGrp;
     private JFrame parent;
     private GameDAO gameDAO;
-    TranslationService translationService;
+    private TranslationService translationService;
 
     public RegisterGUI(JFrame parent, TranslationService translationService) {
         initComponents();

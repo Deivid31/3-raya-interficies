@@ -7,7 +7,7 @@ import services.TranslationService;
 import persistence.GameDAO;
 
 public class LoginGUI extends javax.swing.JFrame {
-    TranslationService translationService;
+    private TranslationService translationService;
     private GameDAO gameDAO;
 
     public LoginGUI() {
@@ -37,9 +37,13 @@ public class LoginGUI extends javax.swing.JFrame {
         setTitle("Login");
         setResizable(false);
 
-
         jButtonLogin.setText("Iniciar sesión");
         jButtonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoginActionPerformed(evt);
+            }
+        });
 
         jButtonRegister.setText("Registrarse");
         jButtonRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -141,9 +145,12 @@ public class LoginGUI extends javax.swing.JFrame {
         translatePage();
     }//GEN-LAST:event_jComboBoxLangPopupMenuWillBecomeInvisible
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
+        GameSelectorGUI gameSelectorGUI = new GameSelectorGUI(this, translationService);
+        gameSelectorGUI.setLocationRelativeTo(null);
+        gameSelectorGUI.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonLoginActionPerformed
    
     
     
