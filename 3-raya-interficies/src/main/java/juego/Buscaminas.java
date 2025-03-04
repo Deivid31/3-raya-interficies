@@ -11,9 +11,13 @@ package juego;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.SQLException;
 import java.util.Random;
+import persistence.GameDAO;
 
 public class Buscaminas extends JDialog {
+    private final String user;
+    private GameDAO dao = new GameDAO();
     private final int filas = 8;
     private final int columnas = 8;
     private final int minas = 10;
@@ -28,7 +32,7 @@ public class Buscaminas extends JDialog {
         setSize(400, 400);
         setLayout(new GridLayout(filas, columnas));
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        
+        this.user = user;
         iniciarJuego();
         setVisible(true);
     }
@@ -83,13 +87,18 @@ public class Buscaminas extends JDialog {
         }
     }
     
-    private void revelarCelda(int x, int y) {
+    private void revelarCelda(int x, int y){
         if (revelado[x][y] || marcado[x][y]) return;
         revelado[x][y] = true;
         celdasReveladas++;
         
         if (esMina[x][y]) {
             mostrarMinas();
+            try {
+                dao.result(user, 0);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+            }
             JOptionPane.showMessageDialog(this, "¡Has perdido :)!");
             iniciarJuego();
             return;
@@ -112,6 +121,11 @@ public class Buscaminas extends JDialog {
         
         if (celdasReveladas == (filas * columnas - minas)) {
             JOptionPane.showMessageDialog(this, "¡Has ganado!");
+            try {
+                dao.result(user, 1);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+            }
             iniciarJuego();
         }
     }

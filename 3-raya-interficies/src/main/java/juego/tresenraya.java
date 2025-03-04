@@ -8,10 +8,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
+import org.openide.util.Exceptions;
+import persistence.GameDAO;
 
 /**
  *
@@ -20,6 +23,8 @@ import javax.swing.border.LineBorder;
 public class tresenraya extends javax.swing.JFrame implements ActionListener{
     private boolean turnoX = true;
     JButton[][] botones = new JButton[3][3];
+    private final String user;
+    private GameDAO dao = new GameDAO();
     
     private ArrayList<JButton> fila1 = new ArrayList<>();
     private ArrayList<JButton> fila2 = new ArrayList<>();
@@ -47,9 +52,11 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener{
     }
     /**
      * Creates new form tresenraya
+     * @param user
      */
-    public tresenraya() {
+    public tresenraya(String user) {
         initComponents();
+        this.user = user;
         botones[0][0] = jButton1;
         botones[0][1] = jButton2;
         botones[0][2] = jButton3;
@@ -222,37 +229,6 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener{
         }
         return true;
     }
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(tresenraya.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(tresenraya.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(tresenraya.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(tresenraya.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new tresenraya().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -296,6 +272,12 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener{
     // Verificar si hay un ganador
     if (hayGanador()) {
         JOptionPane.showMessageDialog(this, "¡Gana " + (turnoX ? "X" : "O") + "!");
+        try {
+            if (turnoX) dao.result(user, 1);
+            else dao.result(user, 0);
+        } catch (SQLException ex) {
+            Exceptions.printStackTrace(ex);
+        }
         reiniciarJuego();
         return;
     }
@@ -303,6 +285,11 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener{
     // Verificar si hay empate
     if (esEmpate()) {
         JOptionPane.showMessageDialog(this, "¡Empate!");
+        try {
+            dao.result(user, 0);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+        }
         reiniciarJuego();
         return;
     }

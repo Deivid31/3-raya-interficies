@@ -3,10 +3,15 @@ package juego;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import org.openide.util.Exceptions;
+import persistence.GameDAO;
 
 public class CuatroEnRaya extends JFrame implements ActionListener {
+    private final String user;
+    private GameDAO dao = new GameDAO();
     private boolean turnoX = true;
     private final int FILAS = 6;
     private final int COLUMNAS = 7;
@@ -16,7 +21,7 @@ public class CuatroEnRaya extends JFrame implements ActionListener {
         setTitle("4 en Raya");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(FILAS, COLUMNAS));
-
+        this.user = user;
         for (int i = 0; i < FILAS; i++) {
             for (int j = 0; j < COLUMNAS; j++) {
                 botones[i][j] = new JButton();
@@ -42,6 +47,12 @@ public class CuatroEnRaya extends JFrame implements ActionListener {
                     //botones[i][j].setBorder(new LineBorder(turnoX ? Color.RED : Color.BLUE, 1));
                     if (hayGanador()) {
                         JOptionPane.showMessageDialog(this, "¡Gana " + (turnoX ? "X" : "O") + "!");
+                        try {
+                            if (turnoX) dao.result(user, 1);
+                            else dao.result(user, 0);
+                        } catch (SQLException ex) {
+                            JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+                        }
                         reiniciarJuego();
                         return;
                     }
