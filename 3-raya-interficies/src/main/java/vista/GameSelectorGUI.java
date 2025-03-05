@@ -29,7 +29,7 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         
         //Iconos
         jImage3Raya.setIcon(new ImageIcon(new ImageIcon("src\\main\\java\\images\\icon.png").getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
-        jImage4Raya.setIcon(new ImageIcon(new ImageIcon("src\\main\\java\\images\\icon.png").getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        jImage4Raya.setIcon(new ImageIcon(new ImageIcon("src\\main\\java\\images\\connect4_icon.png").getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
         jImageMineSweeper.setIcon(new ImageIcon(new ImageIcon("src\\main\\java\\images\\minesweeper_icon.png").getImage().getScaledInstance(60, 60, Image.SCALE_AREA_AVERAGING)));
         
         gameDAO = new GameDAO();
@@ -276,6 +276,15 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         jButton3Raya.setText(translationService.translate("{TICTACTOE}"));
         jButton4Raya.setText(translationService.translate("{CONNECTFOUR}"));
         jButtonMineSweeper.setText(translationService.translate("{MINESWEEPER}"));
+        
+        jMenuNavigator.setText(translationService.translate("{TOPBAR.NAVIGATOR}"));
+        jMenuItem3Raya.setText(translationService.translate("{TICTACTOE}"));
+        jMenuItem4Raya.setText(translationService.translate("{CONNECTFOUR}"));
+        jMenuItemMineSweeper.setText(translationService.translate("{MINESWEEPER}"));
+        jMenuItemLeaderboard.setText(translationService.translate("{TOPBAR.NAVIGATOR.LEADERBOARD}"));
+        
+        jMenuLanguage.setText(translationService.translate("{TOPBAR.LANGUAGE}"));
+        jMenuAccount.setText(translationService.translate("{TOPBAR.ACCOUNT}"));
         
         
     }
