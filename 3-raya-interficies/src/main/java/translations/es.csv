@@ -18,3 +18,5 @@
 {TICTACTOE},3 en Raya
 {CONNECTFOUR},Conecta 4
 {MINESWEEPER},Busca Minas
+{SUCCESSREGISTER}:Registro exitoso
+{DUPLICATEDREGISTER}:Ya existe un usuario con el mismo apodo
