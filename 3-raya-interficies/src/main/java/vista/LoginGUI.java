@@ -1,8 +1,11 @@
 package vista;
 
 import java.awt.List;
+import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import model.Usuari;
+import org.openide.util.Exceptions;
 import services.TranslationService;
 import persistence.GameDAO;
 
@@ -141,15 +144,28 @@ public class LoginGUI extends javax.swing.JFrame {
         String[] codeLang = {"", "ARAB", "CAT", "ENG", "ES", "FRA", "GER", "RUS"};
         codeLang[0] = translationService.getLanguage();
         translationService.setLanguage(codeLang[jComboBoxLang.getSelectedIndex()]);
-        
         translatePage();
     }//GEN-LAST:event_jComboBoxLangPopupMenuWillBecomeInvisible
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        GameSelectorGUI gameSelectorGUI = new GameSelectorGUI(this, translationService);
-        gameSelectorGUI.setLocationRelativeTo(null);
-        gameSelectorGUI.setVisible(true);
-        this.setVisible(false);
+        try {
+            if(!gameDAO.checkUserByNick(jTextFieldNick.getText().toLowerCase())) {
+                JOptionPane.showMessageDialog(this, "ERROR: No existe ningún usuario con el Nick indicado", "", JOptionPane.WARNING_MESSAGE);
+            } else {
+                Usuari jugador = gameDAO.getInfoUser(jTextFieldNick.getText());
+                if(!gameDAO.checkPasswd(jugador.getNick(), jPasswordFieldPasswd.getText())) {
+                    JOptionPane.showMessageDialog(this, "ERROR: Contraseña incorrecta", "", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    GameSelectorGUI gameSelectorGUI = new GameSelectorGUI(this, translationService);
+                    gameSelectorGUI.setLocationRelativeTo(null);
+                    gameSelectorGUI.setVisible(true);
+                    this.setVisible(false);
+                }
+            }
+        } catch (SQLException ex) {
+            Exceptions.printStackTrace(ex);
+        }
+        
     }//GEN-LAST:event_jButtonLoginActionPerformed
    
     
