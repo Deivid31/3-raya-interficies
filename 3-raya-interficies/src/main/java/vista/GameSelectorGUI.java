@@ -14,11 +14,13 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     private TranslationService translationService;
     private JFrame parent;
     private GameDAO gameDAO;
+    private String user;
 
-    public GameSelectorGUI(JFrame parent, TranslationService translationService) {
+    public GameSelectorGUI(JFrame parent, TranslationService translationService, String user) {
         initComponents();
         this.parent = parent;
         this.translationService = translationService;
+        this.user = user;
         ImageIcon img = new ImageIcon("src\\main\\java\\images\\icon.png");
         setIconImage(img.getImage());
         this.translationService = translationService;
@@ -47,12 +49,12 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         jButtonMineSweeper = new javax.swing.JButton();
         jImageMineSweeper = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuNavigator = new javax.swing.JMenu();
         jMenuItem3Raya = new javax.swing.JMenuItem();
         jMenuItem4Raya = new javax.swing.JMenuItem();
         jMenuItemMineSweeper = new javax.swing.JMenuItem();
         jMenuItemLeaderboard = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuLanguage = new javax.swing.JMenu();
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
@@ -60,7 +62,7 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         jRadioButtonMenuItem5 = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem6 = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem7 = new javax.swing.JRadioButtonMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        jMenuAccount = new javax.swing.JMenu();
         jMenuItemLogOut = new javax.swing.JMenuItem();
         jMenuItemDeleteAccount = new javax.swing.JMenuItem();
 
@@ -161,65 +163,65 @@ public class GameSelectorGUI extends javax.swing.JFrame {
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("Navegador");
+        jMenuNavigator.setText("Navegador");
 
         jMenuItem3Raya.setText("3 en Raya...");
-        jMenu1.add(jMenuItem3Raya);
+        jMenuNavigator.add(jMenuItem3Raya);
 
         jMenuItem4Raya.setText("Conecta 4...");
-        jMenu1.add(jMenuItem4Raya);
+        jMenuNavigator.add(jMenuItem4Raya);
 
         jMenuItemMineSweeper.setText("Buscaminas...");
-        jMenu1.add(jMenuItemMineSweeper);
+        jMenuNavigator.add(jMenuItemMineSweeper);
 
         jMenuItemLeaderboard.setText("Clasificación...");
-        jMenu1.add(jMenuItemLeaderboard);
+        jMenuNavigator.add(jMenuItemLeaderboard);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenuNavigator);
 
-        jMenu2.setText("Idioma");
+        jMenuLanguage.setText("Idioma");
 
         buttonGroupLanguage.add(jRadioButtonMenuItem1);
         jRadioButtonMenuItem1.setText("ARB| Árabe");
         jRadioButtonMenuItem1.setActionCommand("ARB| Árabe");
-        jMenu2.add(jRadioButtonMenuItem1);
+        jMenuLanguage.add(jRadioButtonMenuItem1);
 
         buttonGroupLanguage.add(jRadioButtonMenuItem2);
         jRadioButtonMenuItem2.setText("CAT| Catalán");
-        jMenu2.add(jRadioButtonMenuItem2);
+        jMenuLanguage.add(jRadioButtonMenuItem2);
 
         buttonGroupLanguage.add(jRadioButtonMenuItem3);
         jRadioButtonMenuItem3.setText("ENG| Inglés");
-        jMenu2.add(jRadioButtonMenuItem3);
+        jMenuLanguage.add(jRadioButtonMenuItem3);
 
         buttonGroupLanguage.add(jRadioButtonMenuItem4);
         jRadioButtonMenuItem4.setSelected(true);
         jRadioButtonMenuItem4.setText("ESP| Español");
-        jMenu2.add(jRadioButtonMenuItem4);
+        jMenuLanguage.add(jRadioButtonMenuItem4);
 
         buttonGroupLanguage.add(jRadioButtonMenuItem5);
         jRadioButtonMenuItem5.setText("FRE| Francés");
-        jMenu2.add(jRadioButtonMenuItem5);
+        jMenuLanguage.add(jRadioButtonMenuItem5);
 
         buttonGroupLanguage.add(jRadioButtonMenuItem6);
         jRadioButtonMenuItem6.setText("GER| Alemán");
-        jMenu2.add(jRadioButtonMenuItem6);
+        jMenuLanguage.add(jRadioButtonMenuItem6);
 
         buttonGroupLanguage.add(jRadioButtonMenuItem7);
         jRadioButtonMenuItem7.setText("RUS| Ruso");
-        jMenu2.add(jRadioButtonMenuItem7);
+        jMenuLanguage.add(jRadioButtonMenuItem7);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenuLanguage);
 
-        jMenu3.setText("Cuenta");
+        jMenuAccount.setText("Cuenta");
 
         jMenuItemLogOut.setText("Cerrar sesión...");
-        jMenu3.add(jMenuItemLogOut);
+        jMenuAccount.add(jMenuItemLogOut);
 
         jMenuItemDeleteAccount.setText("Borrar cuenta");
-        jMenu3.add(jMenuItemDeleteAccount);
+        jMenuAccount.add(jMenuItemDeleteAccount);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(jMenuAccount);
 
         setJMenuBar(jMenuBar1);
 
@@ -260,8 +262,7 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4RayaActionPerformed
 
     private void jButtonMineSweeperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMineSweeperActionPerformed
-        Buscaminas minesweeper = new Buscaminas(this, translationService, "");
-        //TODO: Pasarle usuario
+        Buscaminas minesweeper = new Buscaminas(this, translationService, user);
     }//GEN-LAST:event_jButtonMineSweeperActionPerformed
    
     
@@ -285,9 +286,7 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jImage3Raya;
     private javax.swing.JLabel jImage4Raya;
     private javax.swing.JLabel jImageMineSweeper;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenuAccount;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem3Raya;
     private javax.swing.JMenuItem jMenuItem4Raya;
@@ -295,6 +294,8 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemLeaderboard;
     private javax.swing.JMenuItem jMenuItemLogOut;
     private javax.swing.JMenuItem jMenuItemMineSweeper;
+    private javax.swing.JMenu jMenuLanguage;
+    private javax.swing.JMenu jMenuNavigator;
     private javax.swing.JPanel jPanel3Raya;
     private javax.swing.JPanel jPanel3Raya8;
     private javax.swing.JPanel jPanel3Raya9;
