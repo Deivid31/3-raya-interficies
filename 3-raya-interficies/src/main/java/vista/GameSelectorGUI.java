@@ -45,6 +45,23 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         jPanel3Raya9 = new javax.swing.JPanel();
         jButtonMineSweeper = new javax.swing.JButton();
         jImageMineSweeper = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem3Raya = new javax.swing.JMenuItem();
+        jMenuItem4Raya = new javax.swing.JMenuItem();
+        jMenuItemMineSweeper = new javax.swing.JMenuItem();
+        jMenuItemLeaderboard = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem5 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem6 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem7 = new javax.swing.JRadioButtonMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItemLogOut = new javax.swing.JMenuItem();
+        jMenuItemDeleteAccount = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -143,6 +160,67 @@ public class GameSelectorGUI extends javax.swing.JFrame {
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
+        jMenu1.setText("Navegador");
+
+        jMenuItem3Raya.setText("3 en Raya...");
+        jMenu1.add(jMenuItem3Raya);
+
+        jMenuItem4Raya.setText("Conecta 4...");
+        jMenu1.add(jMenuItem4Raya);
+
+        jMenuItemMineSweeper.setText("Buscaminas...");
+        jMenu1.add(jMenuItemMineSweeper);
+
+        jMenuItemLeaderboard.setText("Clasificación...");
+        jMenu1.add(jMenuItemLeaderboard);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Idioma");
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("ARB| Árabe");
+        jRadioButtonMenuItem1.setActionCommand("ARB| Árabe");
+        jMenu2.add(jRadioButtonMenuItem1);
+
+        jRadioButtonMenuItem2.setSelected(true);
+        jRadioButtonMenuItem2.setText("CAT| Catalán");
+        jMenu2.add(jRadioButtonMenuItem2);
+
+        jRadioButtonMenuItem3.setSelected(true);
+        jRadioButtonMenuItem3.setText("ENG| Inglés");
+        jMenu2.add(jRadioButtonMenuItem3);
+
+        jRadioButtonMenuItem4.setSelected(true);
+        jRadioButtonMenuItem4.setText("ESP| Español");
+        jMenu2.add(jRadioButtonMenuItem4);
+
+        jRadioButtonMenuItem5.setSelected(true);
+        jRadioButtonMenuItem5.setText("FRE| Francés");
+        jMenu2.add(jRadioButtonMenuItem5);
+
+        jRadioButtonMenuItem6.setSelected(true);
+        jRadioButtonMenuItem6.setText("GER| Alemán");
+        jMenu2.add(jRadioButtonMenuItem6);
+
+        jRadioButtonMenuItem7.setSelected(true);
+        jRadioButtonMenuItem7.setText("RUS| Ruso");
+        jMenu2.add(jRadioButtonMenuItem7);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Cuenta");
+
+        jMenuItemLogOut.setText("Cerrar sesión...");
+        jMenu3.add(jMenuItemLogOut);
+
+        jMenuItemDeleteAccount.setText("Borrar cuenta");
+        jMenu3.add(jMenuItemDeleteAccount);
+
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -164,7 +242,7 @@ public class GameSelectorGUI extends javax.swing.JFrame {
                 .addComponent(jPanel3Raya8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3Raya9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         pack();
@@ -199,37 +277,30 @@ public class GameSelectorGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton3Raya;
-    private javax.swing.JButton jButton3Raya1;
-    private javax.swing.JButton jButton3Raya2;
-    private javax.swing.JButton jButton3Raya3;
-    private javax.swing.JButton jButton3Raya4;
-    private javax.swing.JButton jButton3Raya5;
-    private javax.swing.JButton jButton3Raya6;
-    private javax.swing.JButton jButton3Raya7;
-    private javax.swing.JButton jButton3Raya8;
     private javax.swing.JButton jButton4Raya;
     private javax.swing.JButton jButtonMineSweeper;
     private javax.swing.JLabel jImage3Raya;
-    private javax.swing.JLabel jImage3Raya1;
-    private javax.swing.JLabel jImage3Raya2;
-    private javax.swing.JLabel jImage3Raya3;
-    private javax.swing.JLabel jImage3Raya4;
-    private javax.swing.JLabel jImage3Raya5;
-    private javax.swing.JLabel jImage3Raya6;
-    private javax.swing.JLabel jImage3Raya7;
-    private javax.swing.JLabel jImage3Raya8;
     private javax.swing.JLabel jImage4Raya;
     private javax.swing.JLabel jImageMineSweeper;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem3Raya;
+    private javax.swing.JMenuItem jMenuItem4Raya;
+    private javax.swing.JMenuItem jMenuItemDeleteAccount;
+    private javax.swing.JMenuItem jMenuItemLeaderboard;
+    private javax.swing.JMenuItem jMenuItemLogOut;
+    private javax.swing.JMenuItem jMenuItemMineSweeper;
     private javax.swing.JPanel jPanel3Raya;
-    private javax.swing.JPanel jPanel3Raya1;
-    private javax.swing.JPanel jPanel3Raya2;
-    private javax.swing.JPanel jPanel3Raya3;
-    private javax.swing.JPanel jPanel3Raya4;
-    private javax.swing.JPanel jPanel3Raya5;
-    private javax.swing.JPanel jPanel3Raya6;
-    private javax.swing.JPanel jPanel3Raya7;
     private javax.swing.JPanel jPanel3Raya8;
     private javax.swing.JPanel jPanel3Raya9;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem4;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem5;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem6;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem7;
     // End of variables declaration//GEN-END:variables
 }

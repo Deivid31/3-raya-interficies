@@ -166,7 +166,7 @@ public class RegisterGUI extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "ERROR: Nombre de usuario en uso", "", JOptionPane.WARNING_MESSAGE);
                 } else {
                     gameDAO.addUser(new Usuari(jTextFieldEmail.getText(), jTextFieldNick.getText().toLowerCase(), jPasswordFieldPasswd.getText()));
-                    JOptionPane.showMessageDialog(this, translationService.translate("{SUCCESSREGISTER}", "", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, translationService.translate("{SUCCESSREGISTER}"), "", JOptionPane.INFORMATION_MESSAGE);
                     parent.setVisible(true);
                     this.dispose();
                 }
