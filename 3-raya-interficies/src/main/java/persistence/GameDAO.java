@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import model.Usuari;
 
 public class GameDAO {
@@ -33,7 +34,7 @@ public class GameDAO {
         desconectar(c);
     }
     
-    public boolean checkUser(String email) throws SQLException {
+    public boolean checkUserByEmail(String email) throws SQLException {
         Connection c = conectar();
         Statement st = c.createStatement();
         String query = "SELECT * FROM usuarios WHERE email = '"+email+"';";
@@ -47,10 +48,10 @@ public class GameDAO {
         return false;
     }
     
-    public boolean checkPasswd(String email, String passwd) throws SQLException {
+    public boolean checkUserByNick(String nick) throws SQLException {
         Connection c = conectar();
         Statement st = c.createStatement();
-        String query = "SELECT * FROM usuarios WHERE email = '"+email+"' AND passwd = '"+passwd+"';";
+        String query = "SELECT * FROM usuarios WHERE nick = '"+nick+"';";
         ResultSet rs = st.executeQuery(query);
         if (rs.next()) {
             return true;
@@ -61,9 +62,23 @@ public class GameDAO {
         return false;
     }
     
-    public Usuari getInfoUser(String email) throws SQLException {
+    public boolean checkPasswd(String nick, String passwd) throws SQLException {
         Connection c = conectar();
-        String query = "SELECT * FROM usuarios WHERE email = '"+email+"';";
+        Statement st = c.createStatement();
+        String query = "SELECT * FROM usuarios WHERE nick = '"+nick+"' AND passwd = '"+passwd+"';";
+        ResultSet rs = st.executeQuery(query);
+        if (rs.next()) {
+            return true;
+        }
+        rs.close();
+        st.close();
+        desconectar(c);
+        return false;
+    }
+    
+    public Usuari getInfoUser(String nickname) throws SQLException {
+        Connection c = conectar();
+        String query = "SELECT * FROM usuarios WHERE nick = '"+nickname+"';";
         Statement st = c.createStatement();
         ResultSet rs = st.executeQuery(query);
         String em = "";
@@ -78,7 +93,8 @@ public class GameDAO {
         return new Usuari(em, nick, passwd);
     }
     
-    public void getUsers() throws SQLException {
+    public ArrayList<Usuari> getUsers() throws SQLException {
+        ArrayList<Usuari> leaderboard = new ArrayList<Usuari>();
         Connection c = conectar();
         String query = "SELECT * FROM usuarios;";
         Statement st = c.createStatement();
@@ -87,8 +103,12 @@ public class GameDAO {
             String em = rs.getString("email");
             String nick = rs.getString("nick");
             String passwd = rs.getString("passwd");
+            int partidas = rs.getInt("juegos");
+            int vict = rs.getInt("victoria");
+            leaderboard.add(new Usuari(em, nick, passwd, partidas, vict));
         }
         desconectar(c);
+        return leaderboard;
     }
     
     private void desconectar(Connection c) throws SQLException {
