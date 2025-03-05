@@ -19,4 +19,6 @@
 {CONNECTFOUR},Conecta 4
 {MINESWEEPER},Busca Minas
 {SUCCESSREGISTER}:Registro exitoso
-{DUPLICATEDREGISTER}:Ya existe un usuario con el mismo apodo
+{ERROR.DUPLICATEDEMAIL}:El correo ya está en uso
+{ERROR.DUPLICATEDNICK}:Ya existe un usuario con el mismo apodo
+{WRONG}:
