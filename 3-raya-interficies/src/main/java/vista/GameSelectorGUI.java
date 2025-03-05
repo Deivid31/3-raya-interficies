@@ -36,6 +36,7 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupLanguage = new javax.swing.ButtonGroup();
         jPanel3Raya = new javax.swing.JPanel();
         jButton3Raya = new javax.swing.JButton();
         jImage3Raya = new javax.swing.JLabel();
@@ -178,32 +179,33 @@ public class GameSelectorGUI extends javax.swing.JFrame {
 
         jMenu2.setText("Idioma");
 
-        jRadioButtonMenuItem1.setSelected(true);
+        buttonGroupLanguage.add(jRadioButtonMenuItem1);
         jRadioButtonMenuItem1.setText("ARB| Árabe");
         jRadioButtonMenuItem1.setActionCommand("ARB| Árabe");
         jMenu2.add(jRadioButtonMenuItem1);
 
-        jRadioButtonMenuItem2.setSelected(true);
+        buttonGroupLanguage.add(jRadioButtonMenuItem2);
         jRadioButtonMenuItem2.setText("CAT| Catalán");
         jMenu2.add(jRadioButtonMenuItem2);
 
-        jRadioButtonMenuItem3.setSelected(true);
+        buttonGroupLanguage.add(jRadioButtonMenuItem3);
         jRadioButtonMenuItem3.setText("ENG| Inglés");
         jMenu2.add(jRadioButtonMenuItem3);
 
+        buttonGroupLanguage.add(jRadioButtonMenuItem4);
         jRadioButtonMenuItem4.setSelected(true);
         jRadioButtonMenuItem4.setText("ESP| Español");
         jMenu2.add(jRadioButtonMenuItem4);
 
-        jRadioButtonMenuItem5.setSelected(true);
+        buttonGroupLanguage.add(jRadioButtonMenuItem5);
         jRadioButtonMenuItem5.setText("FRE| Francés");
         jMenu2.add(jRadioButtonMenuItem5);
 
-        jRadioButtonMenuItem6.setSelected(true);
+        buttonGroupLanguage.add(jRadioButtonMenuItem6);
         jRadioButtonMenuItem6.setText("GER| Alemán");
         jMenu2.add(jRadioButtonMenuItem6);
 
-        jRadioButtonMenuItem7.setSelected(true);
+        buttonGroupLanguage.add(jRadioButtonMenuItem7);
         jRadioButtonMenuItem7.setText("RUS| Ruso");
         jMenu2.add(jRadioButtonMenuItem7);
 
@@ -276,6 +278,7 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupLanguage;
     private javax.swing.JButton jButton3Raya;
     private javax.swing.JButton jButton4Raya;
     private javax.swing.JButton jButtonMineSweeper;
