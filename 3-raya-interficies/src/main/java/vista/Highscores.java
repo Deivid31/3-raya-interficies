@@ -1,15 +1,20 @@
 package vista;
 
 import java.sql.SQLException;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import persistence.GameDAO;
 import vista.modeloTabla.LeaderboardTableModel;
 
-public class Highscores extends javax.swing.JPanel {
-     private GameDAO gameDAO;
+public class Highscores extends JDialog {
+    private JFrame parent;
+    private GameDAO gameDAO;
     
-    public Highscores() throws SQLException {
-        initComponents();
+    public Highscores(JFrame parent) throws SQLException {
+        super(parent, "Leaderboard", true);
+        this.parent = parent;
         gameDAO = new GameDAO();
+        initComponents();
         jTaLeaderboard.setModel(new LeaderboardTableModel(gameDAO.getUsers()));
     }
 
