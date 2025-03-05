@@ -29,7 +29,7 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         
         //Iconos
         jImage3Raya.setIcon(new ImageIcon(new ImageIcon("src\\main\\java\\images\\icon.png").getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
-        jImage4Raya.setIcon(new ImageIcon(new ImageIcon("src\\main\\java\\images\\icon.png").getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+        jImage4Raya.setIcon(new ImageIcon(new ImageIcon("src\\main\\java\\images\\connect4_icon.png").getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
         jImageMineSweeper.setIcon(new ImageIcon(new ImageIcon("src\\main\\java\\images\\minesweeper_icon.png").getImage().getScaledInstance(60, 60, Image.SCALE_AREA_AVERAGING)));
         
         gameDAO = new GameDAO();
