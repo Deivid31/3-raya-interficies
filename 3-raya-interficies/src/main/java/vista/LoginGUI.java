@@ -156,7 +156,7 @@ public class LoginGUI extends javax.swing.JFrame {
                 if(!gameDAO.checkPasswd(jugador.getNick(), jPasswordFieldPasswd.getText())) {
                     JOptionPane.showMessageDialog(this, "ERROR: Contraseña incorrecta", "", JOptionPane.WARNING_MESSAGE);
                 } else {
-                    GameSelectorGUI gameSelectorGUI = new GameSelectorGUI(this, translationService);
+                    GameSelectorGUI gameSelectorGUI = new GameSelectorGUI(this, translationService, jTextFieldNick.getText().toLowerCase());
                     gameSelectorGUI.setLocationRelativeTo(null);
                     gameSelectorGUI.setVisible(true);
                     this.setVisible(false);
