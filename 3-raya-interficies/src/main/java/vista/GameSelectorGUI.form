@@ -38,7 +38,7 @@
             <Property name="text" type="java.lang.String" value="Idioma"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem1">
+            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButton1">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroupLanguage"/>
@@ -46,7 +46,7 @@
                 <Property name="text" type="java.lang.String" value="ARB| &#xc1;rabe"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem2">
+            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButton2">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroupLanguage"/>
@@ -54,7 +54,7 @@
                 <Property name="text" type="java.lang.String" value="CAT| Catal&#xe1;n"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem3">
+            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButton3">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroupLanguage"/>
@@ -62,7 +62,7 @@
                 <Property name="text" type="java.lang.String" value="ENG| Ingl&#xe9;s"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem4">
+            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButton4">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroupLanguage"/>
@@ -71,7 +71,7 @@
                 <Property name="text" type="java.lang.String" value="ESP| Espa&#xf1;ol"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem5">
+            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButton5">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroupLanguage"/>
@@ -79,7 +79,7 @@
                 <Property name="text" type="java.lang.String" value="FRE| Franc&#xe9;s"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem6">
+            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButton6">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroupLanguage"/>
@@ -87,7 +87,7 @@
                 <Property name="text" type="java.lang.String" value="GER| Alem&#xe1;n"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem7">
+            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButton7">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroupLanguage"/>
@@ -106,6 +106,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cerrar sesi&#xf3;n..."/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemLogOutActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemDeleteAccount">
               <Properties>

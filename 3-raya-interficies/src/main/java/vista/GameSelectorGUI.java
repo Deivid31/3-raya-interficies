@@ -56,13 +56,13 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         jMenuItemMineSweeper = new javax.swing.JMenuItem();
         jMenuItemLeaderboard = new javax.swing.JMenuItem();
         jMenuLanguage = new javax.swing.JMenu();
-        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem5 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem6 = new javax.swing.JRadioButtonMenuItem();
-        jRadioButtonMenuItem7 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButton1 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButton2 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButton3 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButton4 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButton5 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButton6 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButton7 = new javax.swing.JRadioButtonMenuItem();
         jMenuAccount = new javax.swing.JMenu();
         jMenuItemLogOut = new javax.swing.JMenuItem();
         jMenuItemDeleteAccount = new javax.swing.JMenuItem();
@@ -182,41 +182,45 @@ public class GameSelectorGUI extends javax.swing.JFrame {
 
         jMenuLanguage.setText("Idioma");
 
-        buttonGroupLanguage.add(jRadioButtonMenuItem1);
-        jRadioButtonMenuItem1.setText("ARB| Árabe");
-        jRadioButtonMenuItem1.setActionCommand("ARB| Árabe");
-        jMenuLanguage.add(jRadioButtonMenuItem1);
+        buttonGroupLanguage.add(jRadioButton1);
+        jRadioButton1.setText("ARB| Árabe");
+        jMenuLanguage.add(jRadioButton1);
 
-        buttonGroupLanguage.add(jRadioButtonMenuItem2);
-        jRadioButtonMenuItem2.setText("CAT| Catalán");
-        jMenuLanguage.add(jRadioButtonMenuItem2);
+        buttonGroupLanguage.add(jRadioButton2);
+        jRadioButton2.setText("CAT| Catalán");
+        jMenuLanguage.add(jRadioButton2);
 
-        buttonGroupLanguage.add(jRadioButtonMenuItem3);
-        jRadioButtonMenuItem3.setText("ENG| Inglés");
-        jMenuLanguage.add(jRadioButtonMenuItem3);
+        buttonGroupLanguage.add(jRadioButton3);
+        jRadioButton3.setText("ENG| Inglés");
+        jMenuLanguage.add(jRadioButton3);
 
-        buttonGroupLanguage.add(jRadioButtonMenuItem4);
-        jRadioButtonMenuItem4.setSelected(true);
-        jRadioButtonMenuItem4.setText("ESP| Español");
-        jMenuLanguage.add(jRadioButtonMenuItem4);
+        buttonGroupLanguage.add(jRadioButton4);
+        jRadioButton4.setSelected(true);
+        jRadioButton4.setText("ESP| Español");
+        jMenuLanguage.add(jRadioButton4);
 
-        buttonGroupLanguage.add(jRadioButtonMenuItem5);
-        jRadioButtonMenuItem5.setText("FRE| Francés");
-        jMenuLanguage.add(jRadioButtonMenuItem5);
+        buttonGroupLanguage.add(jRadioButton5);
+        jRadioButton5.setText("FRE| Francés");
+        jMenuLanguage.add(jRadioButton5);
 
-        buttonGroupLanguage.add(jRadioButtonMenuItem6);
-        jRadioButtonMenuItem6.setText("GER| Alemán");
-        jMenuLanguage.add(jRadioButtonMenuItem6);
+        buttonGroupLanguage.add(jRadioButton6);
+        jRadioButton6.setText("GER| Alemán");
+        jMenuLanguage.add(jRadioButton6);
 
-        buttonGroupLanguage.add(jRadioButtonMenuItem7);
-        jRadioButtonMenuItem7.setText("RUS| Ruso");
-        jMenuLanguage.add(jRadioButtonMenuItem7);
+        buttonGroupLanguage.add(jRadioButton7);
+        jRadioButton7.setText("RUS| Ruso");
+        jMenuLanguage.add(jRadioButton7);
 
         jMenuBar1.add(jMenuLanguage);
 
         jMenuAccount.setText("Cuenta");
 
         jMenuItemLogOut.setText("Cerrar sesión...");
+        jMenuItemLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLogOutActionPerformed(evt);
+            }
+        });
         jMenuAccount.add(jMenuItemLogOut);
 
         jMenuItemDeleteAccount.setText("Borrar cuenta");
@@ -267,6 +271,11 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         Buscaminas minesweeper = new Buscaminas(this, translationService, user);
         minesweeper.setVisible(true);
     }//GEN-LAST:event_jButtonMineSweeperActionPerformed
+
+    private void jMenuItemLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLogOutActionPerformed
+        parent.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItemLogOutActionPerformed
    
     
     
@@ -283,8 +292,19 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         jMenuItemMineSweeper.setText(translationService.translate("{MINESWEEPER}"));
         jMenuItemLeaderboard.setText(translationService.translate("{TOPBAR.NAVIGATOR.LEADERBOARD}"));
         
-        jMenuLanguage.setText(translationService.translate("{TOPBAR.LANGUAGE}"));
+        jMenuLanguage.setText(translationService.translate("{TOPBAR.LANGUAGES}"));
+        jRadioButton1.setText(translationService.translate("{LANGUAGE.ARAB}"));
+        jRadioButton2.setText(translationService.translate("{LANGUAGE.CATALAN}"));
+        jRadioButton3.setText(translationService.translate("{LANGUAGE.ENGLISH}"));
+        jRadioButton4.setText(translationService.translate("{LANGUAGE.SPANISH}"));
+        jRadioButton5.setText(translationService.translate("{LANGUAGE.FRENCH}"));
+        jRadioButton6.setText(translationService.translate("{LANGUAGE.GERMAN}"));
+        jRadioButton7.setText(translationService.translate("{LANGUAGE.RUSSIAN}"));
+        
+        
         jMenuAccount.setText(translationService.translate("{TOPBAR.ACCOUNT}"));
+        jMenuItemLogOut.setText(translationService.translate("{TOPBAR.ACCOUNT.LOGOUT}"));
+        jMenuItemDeleteAccount.setText(translationService.translate("{TOPBAR.ACCOUNT.DELETEACCOUNT}"));
         
         
     }
@@ -311,12 +331,12 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3Raya;
     private javax.swing.JPanel jPanel3Raya8;
     private javax.swing.JPanel jPanel3Raya9;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem4;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem5;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem6;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem7;
+    private javax.swing.JRadioButtonMenuItem jRadioButton1;
+    private javax.swing.JRadioButtonMenuItem jRadioButton2;
+    private javax.swing.JRadioButtonMenuItem jRadioButton3;
+    private javax.swing.JRadioButtonMenuItem jRadioButton4;
+    private javax.swing.JRadioButtonMenuItem jRadioButton5;
+    private javax.swing.JRadioButtonMenuItem jRadioButton6;
+    private javax.swing.JRadioButtonMenuItem jRadioButton7;
     // End of variables declaration//GEN-END:variables
 }
