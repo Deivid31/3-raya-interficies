@@ -150,11 +150,11 @@ public class LoginGUI extends javax.swing.JFrame {
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         try {
             if(!gameDAO.checkUserByNick(jTextFieldNick.getText().toLowerCase())) {
-                JOptionPane.showMessageDialog(this, "ERROR: No existe ningún usuario con el Nick indicado", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.WRONGLOGIN}"), "", JOptionPane.WARNING_MESSAGE);
             } else {
                 Usuari jugador = gameDAO.getInfoUser(jTextFieldNick.getText());
                 if(!gameDAO.checkPasswd(jugador.getNick(), jPasswordFieldPasswd.getText())) {
-                    JOptionPane.showMessageDialog(this, "ERROR: Contraseña incorrecta", "", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.WRONGLOGIN}"), "", JOptionPane.WARNING_MESSAGE);
                 } else {
                     GameSelectorGUI gameSelectorGUI = new GameSelectorGUI(this, translationService, jTextFieldNick.getText().toLowerCase());
                     gameSelectorGUI.setLocationRelativeTo(null);
