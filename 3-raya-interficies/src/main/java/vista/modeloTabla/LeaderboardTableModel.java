@@ -26,9 +26,11 @@ public class LeaderboardTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int iFila, int iColumna) {
+        int pos = 0;
         switch (iColumna) {
             case 0:
-                //return ;
+                pos++;
+                return pos;
             case 1:
                 return leaderboardDelModel.get(iFila).getNick();
             case 2:

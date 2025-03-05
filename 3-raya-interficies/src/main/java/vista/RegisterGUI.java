@@ -162,10 +162,14 @@ public class RegisterGUI extends javax.swing.JFrame {
             if(gameDAO.checkUserByEmail(jTextFieldEmail.getText().toLowerCase())) {
                 JOptionPane.showMessageDialog(this, "ERROR: Ya existe un usuario con este correo", "", JOptionPane.WARNING_MESSAGE);
             } else {
-                gameDAO.addUser(new Usuari(jTextFieldEmail.getText(), jTextFieldNick.getText().toLowerCase(), jPasswordFieldPasswd.getText()));
-                JOptionPane.showMessageDialog(this, "Registro exitoso", "", JOptionPane.INFORMATION_MESSAGE);
-                parent.setVisible(true);
-                this.dispose();
+                if(gameDAO.checkUserByNick(jTextFieldNick.getText().toLowerCase())) {
+                    JOptionPane.showMessageDialog(this, "ERROR: Nombre de usuario en uso", "", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    gameDAO.addUser(new Usuari(jTextFieldEmail.getText(), jTextFieldNick.getText().toLowerCase(), jPasswordFieldPasswd.getText()));
+                    JOptionPane.showMessageDialog(this, "Registro exitoso", "", JOptionPane.INFORMATION_MESSAGE);
+                    parent.setVisible(true);
+                    this.dispose();
+                }
             }
         } catch (SQLException ex) {
             Exceptions.printStackTrace(ex);

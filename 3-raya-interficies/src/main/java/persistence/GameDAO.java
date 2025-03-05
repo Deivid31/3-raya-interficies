@@ -34,6 +34,14 @@ public class GameDAO {
         desconectar(c);
     }
     
+    public void delUser(Usuari usuari) throws SQLException {
+        Connection c = conectar();
+        PreparedStatement ps = c.prepareStatement("DELETE FROM usuarios WHERE nick = '"+usuari.getNick()+"';");
+        ps.executeUpdate();
+        ps.close();
+        desconectar(c);
+    }
+    
     public boolean checkUserByEmail(String email) throws SQLException {
         Connection c = conectar();
         Statement st = c.createStatement();
