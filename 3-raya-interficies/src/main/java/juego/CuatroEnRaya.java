@@ -1,15 +1,28 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
+ */
 package juego;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 import persistence.GameDAO;
 import services.TranslationService;
 
-public class CuatroEnRaya extends JFrame implements ActionListener {
+/**
+ *
+ * @author Admin
+ */
+public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener{
     private JFrame parent;
     private TranslationService translationService;
     private final String user;
@@ -25,7 +38,7 @@ public class CuatroEnRaya extends JFrame implements ActionListener {
         this.user = user;
         
         setTitle("4 en Raya");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setLayout(new GridLayout(FILAS, COLUMNAS));
 
         for (int i = 0; i < FILAS; i++) {
@@ -52,7 +65,7 @@ public class CuatroEnRaya extends JFrame implements ActionListener {
                     botones[i][j].setBackground(turnoX ? Color.RED : Color.BLUE);
                     //botones[i][j].setBorder(new LineBorder(turnoX ? Color.RED : Color.BLUE, 1));
                     if (hayGanador()) {
-                        JOptionPane.showMessageDialog(this, "Â¡Gana " + (turnoX ? "X" : "O") + "!");
+                        JOptionPane.showMessageDialog(this, "¡Gana " + (turnoX ? "X" : "O") + "!");
                         try {
                             if (turnoX) dao.result(user, 1);
                             else dao.result(user, 0);
@@ -110,13 +123,11 @@ public class CuatroEnRaya extends JFrame implements ActionListener {
         }
         turnoX = true;
     }
-
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,7 +143,6 @@ public class CuatroEnRaya extends JFrame implements ActionListener {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
