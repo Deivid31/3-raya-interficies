@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import juego.Buscaminas;
 import juego.CuatroEnRaya;
+import juego.tresenraya;
 import services.TranslationService;
 import persistence.GameDAO;
 
@@ -253,16 +254,18 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3RayaActionPerformed
-        // TODO add your handling code here:
+        tresenraya tictactoe = new tresenraya(this, translationService, user);
+        tictactoe.setVisible(true);
     }//GEN-LAST:event_jButton3RayaActionPerformed
 
     private void jButton4RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4RayaActionPerformed
-        CuatroEnRaya connect4 = new CuatroEnRaya(this, translationService, "");
-        //TODO: Pasarle usuario
+        CuatroEnRaya connect4 = new CuatroEnRaya(this, translationService, user);
+        connect4.setVisible(true);
     }//GEN-LAST:event_jButton4RayaActionPerformed
 
     private void jButtonMineSweeperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMineSweeperActionPerformed
         Buscaminas minesweeper = new Buscaminas(this, translationService, user);
+        minesweeper.setVisible(true);
     }//GEN-LAST:event_jButtonMineSweeperActionPerformed
    
     
