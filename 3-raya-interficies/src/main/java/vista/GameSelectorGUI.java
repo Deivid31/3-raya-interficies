@@ -277,6 +277,15 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         jButton4Raya.setText(translationService.translate("{CONNECTFOUR}"));
         jButtonMineSweeper.setText(translationService.translate("{MINESWEEPER}"));
         
+        jMenuNavigator.setText(translationService.translate("{TOPBAR.NAVIGATOR}"));
+        jMenuItem3Raya.setText(translationService.translate("{TICTACTOE}"));
+        jMenuItem4Raya.setText(translationService.translate("{CONNECTFOUR}"));
+        jMenuItemMineSweeper.setText(translationService.translate("{MINESWEEPER}"));
+        jMenuItemLeaderboard.setText(translationService.translate("{TOPBAR.NAVIGATOR.LEADERBOARD}"));
+        
+        jMenuLanguage.setText(translationService.translate("{TOPBAR.LANGUAGE}"));
+        jMenuAccount.setText(translationService.translate("{TOPBAR.ACCOUNT}"));
+        
         
     }
     

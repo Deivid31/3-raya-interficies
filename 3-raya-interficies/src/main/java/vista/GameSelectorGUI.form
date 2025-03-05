@@ -44,7 +44,6 @@
                   <ComponentRef name="buttonGroupLanguage"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="ARB| &#xc1;rabe"/>
-                <Property name="actionCommand" type="java.lang.String" value="ARB| &#xc1;rabe"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem2">
