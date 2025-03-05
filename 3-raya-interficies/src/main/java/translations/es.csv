@@ -21,4 +21,5 @@
 {SUCCESSREGISTER}:Registro exitoso
 {ERROR.DUPLICATEDEMAIL}:El correo ya está en uso
 {ERROR.DUPLICATEDNICK}:Ya existe un usuario con el mismo apodo
-{WRONG}:
+{ERROR.WRONGLOGIN}:Usuario o contraseña incorrectos
+{ERROR.UNKNOWN}:Error desconocido
