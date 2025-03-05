@@ -18,8 +18,14 @@
 {TICTACTOE},3 en Raya
 {CONNECTFOUR},Conecta 4
 {MINESWEEPER},Busca Minas
-{SUCCESSREGISTER}:Registro exitoso
-{ERROR.DUPLICATEDEMAIL}:El correo ya está en uso
-{ERROR.DUPLICATEDNICK}:Ya existe un usuario con el mismo apodo
-{ERROR.WRONGLOGIN}:Usuario o contraseña incorrectos
-{ERROR.UNKNOWN}:Error desconocido
+{TOPBAR.NAVIGATOR},Navegador
+{TOPBAR.NAVIGATOR.LEADERBOARD},Clasificación
+{TOPBAR.LANGUAGES},Idiomas
+{TOPBAR.ACCOUNT},Cuenta
+{TOPBAR.ACCOUNT.LOGOUT},Cerrar sesión
+{TOPBAR.ACCOUNT.DELETEACCOUNT},Borrar cuenta
+{SUCCESSREGISTER},Registro exitoso
+{ERROR.DUPLICATEDEMAIL},El correo ya está en uso
+{ERROR.DUPLICATEDNICK},Ya existe un usuario con el mismo apodo
+{ERROR.WRONGLOGIN},Usuario o contraseña incorrectos
+{ERROR.UNKNOWN},Error desconocido
