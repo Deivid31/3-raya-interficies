@@ -1,20 +1,21 @@
 package vista;
 
 import java.sql.SQLException;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import persistence.GameDAO;
+import services.TranslationService;
 import vista.modeloTabla.LeaderboardTableModel;
 
-public class Highscores extends JDialog {
+public class Highscores extends javax.swing.JFrame {
     private JFrame parent;
+    private TranslationService translationService;
     private GameDAO gameDAO;
-    
-    public Highscores(JFrame parent) throws SQLException {
-        super(parent, "Leaderboard", true);
-        this.parent = parent;
-        gameDAO = new GameDAO();
+
+    public Highscores(JFrame parent, TranslationService translationService) throws SQLException {
         initComponents();
+        this.parent = parent;
+        this.translationService = translationService;
+        gameDAO = new GameDAO();
         jTaLeaderboard.setModel(new LeaderboardTableModel(gameDAO.getUsers()));
     }
 
@@ -30,6 +31,8 @@ public class Highscores extends JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTaLeaderboard = new javax.swing.JTable();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         jTaLeaderboard.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -42,7 +45,7 @@ public class Highscores extends JDialog {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -58,18 +61,21 @@ public class Highscores extends JDialog {
         });
         jScrollPane1.setViewportView(jTaLeaderboard);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
-    }// </editor-fold>//GEN-END:initComponents
 
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

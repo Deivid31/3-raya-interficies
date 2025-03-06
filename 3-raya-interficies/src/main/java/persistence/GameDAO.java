@@ -18,9 +18,9 @@ public class GameDAO {
     return c;
     }
     
-    public void result(String nick, int res) throws SQLException {
+    public void result(Usuari usuari, int res) throws SQLException {
         Connection c = conectar();
-        PreparedStatement ps = c.prepareStatement("UPDATE usuarios SET juegos = juegos + 1, victoria = victoria +"+res+" WHERE nick = '"+nick+"';");
+        PreparedStatement ps = c.prepareStatement("UPDATE usuarios SET juegos = juegos + 1, victoria = victoria +"+res+" WHERE nick = '"+usuari.getNick()+"';");
         ps.executeUpdate();
         ps.close();
         desconectar(c);
