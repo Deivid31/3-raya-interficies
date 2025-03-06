@@ -28,12 +28,13 @@ public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener{
     private TranslationService translationService;
     private final Usuari user;
     private GameDAO dao = new GameDAO();
+    private boolean symbol;
     private boolean turnoX = true;
     private final int FILAS = 6;
     private final int COLUMNAS = 7;
     private JButton[][] botones = new JButton[FILAS][COLUMNAS];
 
-    public CuatroEnRaya(JFrame parent, TranslationService translationService, Usuari user) {
+    public CuatroEnRaya(JFrame parent, TranslationService translationService, Usuari user, boolean symbol) {
         this.parent = parent;
         this.translationService = translationService;
         this.user = user;
@@ -68,7 +69,7 @@ public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener{
                     if (hayGanador()) {
                         JOptionPane.showMessageDialog(this, "¡Gana " + (turnoX ? "X" : "O") + "!");
                         try {
-                            if (turnoX) dao.result(user, 1);
+                            if (turnoX == symbol) dao.result(user, 1);
                             else dao.result(user, 0);
                         } catch (SQLException ex) {
                             JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");

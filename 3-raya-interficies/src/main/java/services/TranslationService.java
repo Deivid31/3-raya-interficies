@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class TranslationService {
 
-    String language = "ES";
+    String language = "ESP";
 
     Map<String, String> arab = new HashMap<>();
     Map<String, String> catalan = new HashMap<>();
@@ -109,7 +109,7 @@ public class TranslationService {
                 return catalan.getOrDefault(str, str);
             case "ENG":
                 return english.getOrDefault(str, str);
-            case "ES":
+            case "ESP":
                 return spanish.getOrDefault(str, str);
             case "FRA":
                 return french.getOrDefault(str, str);
