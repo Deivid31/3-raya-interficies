@@ -69,7 +69,7 @@ public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener{
                     if (hayGanador()) {
                         JOptionPane.showMessageDialog(this, "¡Gana " + (turnoX ? "X" : "O") + "!");
                         try {
-                            if (turnoX) dao.result(user, 1);
+                            if (turnoX == symbol) dao.result(user, 1);
                             else dao.result(user, 0);
                         } catch (SQLException ex) {
                             JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
