@@ -367,12 +367,12 @@ public class Buscaminas extends JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem3RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3RayaActionPerformed
-        ElegirSimbolox elegirSimbolo = new ElegirSimbolox(LoginGUI.getInstance(), translationService, user, true);
+        ElegirSimbolo elegirSimbolo = new ElegirSimbolo(LoginGUI.getInstance(), translationService, user, true);
         elegirSimbolo.setVisible(true);
     }//GEN-LAST:event_jMenuItem3RayaActionPerformed
 
     private void jMenuItem4RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4RayaActionPerformed
-        ElegirSimbolox elegirSimbolo = new ElegirSimbolox(LoginGUI.getInstance(), translationService, user, false);
+        ElegirSimbolo elegirSimbolo = new ElegirSimbolo(LoginGUI.getInstance(), translationService, user, false);
         elegirSimbolo.setVisible(true);
     }//GEN-LAST:event_jMenuItem4RayaActionPerformed
 

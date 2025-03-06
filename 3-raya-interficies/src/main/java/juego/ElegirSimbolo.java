@@ -12,7 +12,7 @@ import services.TranslationService;
  *
  * @author Admin
  */
-public class ElegirSimbol extends javax.swing.JDialog {
+public class ElegirSimbolo extends javax.swing.JDialog {
 private JFrame parent;
     private Usuari user;
     private TranslationService translationService;
@@ -20,7 +20,7 @@ private JFrame parent;
     /**
      
 Creates new form ElegirSimbolo*/
-  public ElegirSimbol(java.awt.Frame parent,TranslationService translationService, Usuari user,  boolean juego) {
+  public ElegirSimbolo(java.awt.Frame parent,TranslationService translationService, Usuari user,  boolean juego) {
       this.parent = this.parent;
       this.translationService = translationService;
       this.user = user;
