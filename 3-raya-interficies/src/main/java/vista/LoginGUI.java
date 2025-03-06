@@ -142,7 +142,7 @@ public class LoginGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRegisterActionPerformed
 
     private void jComboBoxLangPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jComboBoxLangPopupMenuWillBecomeInvisible
-        String[] codeLang = {"", "ARAB", "CAT", "ENG", "ES", "FRA", "GER", "RUS"};
+        String[] codeLang = {"", "ARAB", "CAT", "ENG", "ESP", "FRA", "GER", "RUS"};
         codeLang[0] = translationService.getLanguage();
         translationService.setLanguage(codeLang[jComboBoxLang.getSelectedIndex()]);
         translatePage();

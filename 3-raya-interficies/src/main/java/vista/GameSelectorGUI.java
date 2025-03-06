@@ -4,8 +4,10 @@ import java.awt.Image;
 import java.awt.List;
 import java.sql.SQLException;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButtonMenuItem;
 import juego.Buscaminas;
 import juego.CuatroEnRaya;
 import juego.tresenraya;
@@ -15,9 +17,9 @@ import services.TranslationService;
 import persistence.GameDAO;
 
 public class GameSelectorGUI extends javax.swing.JFrame {
+
     private TranslationService translationService;
     private JFrame parent;
-    private GameDAO gameDAO;
     private Usuari user;
 
     public GameSelectorGUI(JFrame parent, TranslationService translationService, Usuari user) {
@@ -28,13 +30,12 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         ImageIcon img = new ImageIcon("src\\main\\java\\images\\icon.png");
         setIconImage(img.getImage());
         translatePage();
-        
+
         //Iconos
         jImage3Raya.setIcon(new ImageIcon(new ImageIcon("src\\main\\java\\images\\icon.png").getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
         jImage4Raya.setIcon(new ImageIcon(new ImageIcon("src\\main\\java\\images\\connect4_icon.png").getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
         jImageMineSweeper.setIcon(new ImageIcon(new ImageIcon("src\\main\\java\\images\\minesweeper_icon.png").getImage().getScaledInstance(60, 60, Image.SCALE_AREA_AVERAGING)));
-        
-        gameDAO = new GameDAO();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -169,12 +170,27 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         jMenuNavigator.setText("Navegador");
 
         jMenuItem3Raya.setText("3 en Raya...");
+        jMenuItem3Raya.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3RayaActionPerformed(evt);
+            }
+        });
         jMenuNavigator.add(jMenuItem3Raya);
 
         jMenuItem4Raya.setText("Conecta 4...");
+        jMenuItem4Raya.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4RayaActionPerformed(evt);
+            }
+        });
         jMenuNavigator.add(jMenuItem4Raya);
 
         jMenuItemMineSweeper.setText("Buscaminas...");
+        jMenuItemMineSweeper.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMineSweeperActionPerformed(evt);
+            }
+        });
         jMenuNavigator.add(jMenuItemMineSweeper);
 
         jMenuItemLeaderboard.setText("Clasificación...");
@@ -188,34 +204,75 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         jMenuBar1.add(jMenuNavigator);
 
         jMenuLanguage.setText("Idioma");
+        jMenuLanguage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeLanguage(evt);
+            }
+        });
 
         buttonGroupLanguage.add(jRadioButton1);
         jRadioButton1.setText("ARB| Árabe");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeLanguage(evt);
+            }
+        });
         jMenuLanguage.add(jRadioButton1);
+        jRadioButton1.getAccessibleContext().setAccessibleDescription("");
 
         buttonGroupLanguage.add(jRadioButton2);
         jRadioButton2.setText("CAT| Catalán");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeLanguage(evt);
+            }
+        });
         jMenuLanguage.add(jRadioButton2);
 
         buttonGroupLanguage.add(jRadioButton3);
         jRadioButton3.setText("ENG| Inglés");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeLanguage(evt);
+            }
+        });
         jMenuLanguage.add(jRadioButton3);
 
         buttonGroupLanguage.add(jRadioButton4);
         jRadioButton4.setSelected(true);
         jRadioButton4.setText("ESP| Español");
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeLanguage(evt);
+            }
+        });
         jMenuLanguage.add(jRadioButton4);
 
         buttonGroupLanguage.add(jRadioButton5);
         jRadioButton5.setText("FRE| Francés");
+        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeLanguage(evt);
+            }
+        });
         jMenuLanguage.add(jRadioButton5);
 
         buttonGroupLanguage.add(jRadioButton6);
         jRadioButton6.setText("GER| Alemán");
+        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeLanguage(evt);
+            }
+        });
         jMenuLanguage.add(jRadioButton6);
 
         buttonGroupLanguage.add(jRadioButton7);
         jRadioButton7.setText("RUS| Ruso");
+        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeLanguage(evt);
+            }
+        });
         jMenuLanguage.add(jRadioButton7);
 
         jMenuBar1.add(jMenuLanguage);
@@ -293,41 +350,64 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Exceptions.printStackTrace(ex);
         }
-       
+
     }//GEN-LAST:event_jMenuItemLeaderboardActionPerformed
-   
+
+    private void jMenuItem3RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3RayaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3RayaActionPerformed
+
+    private void jMenuItem4RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4RayaActionPerformed
+        CuatroEnRaya ventana = new CuatroEnRaya(this, translationService, user);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4RayaActionPerformed
+
+    private void jMenuItemMineSweeperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMineSweeperActionPerformed
+        Buscaminas ventana = new Buscaminas(this, translationService, user);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jMenuItemMineSweeperActionPerformed
+
     
     
+    private void changeLanguage(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeLanguage
+
+        Object source = evt.getSource();
+        if (source instanceof JRadioButtonMenuItem menuItem) { // Comprobar que es un JRadioButtonMenuItem
+            String[] temp = menuItem.getText().split("\\|");
+            translationService.setLanguage(temp[0]);
+            translatePage();
+        }
+
+    }//GEN-LAST:event_changeLanguage
+
     private void translatePage() {
         this.setTitle(translationService.translate("{TITLE.GAMESELECTOR}"));
-        
+
         jButton3Raya.setText(translationService.translate("{TICTACTOE}"));
         jButton4Raya.setText(translationService.translate("{CONNECTFOUR}"));
         jButtonMineSweeper.setText(translationService.translate("{MINESWEEPER}"));
-        
+
         jMenuNavigator.setText(translationService.translate("{TOPBAR.NAVIGATOR}"));
         jMenuItem3Raya.setText(translationService.translate("{TICTACTOE}"));
         jMenuItem4Raya.setText(translationService.translate("{CONNECTFOUR}"));
         jMenuItemMineSweeper.setText(translationService.translate("{MINESWEEPER}"));
         jMenuItemLeaderboard.setText(translationService.translate("{TOPBAR.NAVIGATOR.LEADERBOARD}"));
-        
+
         jMenuLanguage.setText(translationService.translate("{TOPBAR.LANGUAGES}"));
-        jRadioButton1.setText(translationService.translate("{LANGUAGE.ARAB}"));
-        jRadioButton2.setText(translationService.translate("{LANGUAGE.CATALAN}"));
-        jRadioButton3.setText(translationService.translate("{LANGUAGE.ENGLISH}"));
-        jRadioButton4.setText(translationService.translate("{LANGUAGE.SPANISH}"));
-        jRadioButton5.setText(translationService.translate("{LANGUAGE.FRENCH}"));
-        jRadioButton6.setText(translationService.translate("{LANGUAGE.GERMAN}"));
-        jRadioButton7.setText(translationService.translate("{LANGUAGE.RUSSIAN}"));
-        
-        
+        jRadioButton1.setText("ARB| " + translationService.translate("{LANGUAGE.ARAB}"));
+        jRadioButton2.setText("CAT| " + translationService.translate("{LANGUAGE.CATALAN}"));
+        jRadioButton3.setText("ENG| " + translationService.translate("{LANGUAGE.ENGLISH}"));
+        jRadioButton4.setText("ESP| " + translationService.translate("{LANGUAGE.SPANISH}"));
+        jRadioButton5.setText("FRE| " + translationService.translate("{LANGUAGE.FRENCH}"));
+        jRadioButton6.setText("GER| " + translationService.translate("{LANGUAGE.GERMAN}"));
+        jRadioButton7.setText("RUS| " + translationService.translate("{LANGUAGE.RUSSIAN}"));
+
         jMenuAccount.setText(translationService.translate("{TOPBAR.ACCOUNT}"));
         jMenuItemLogOut.setText(translationService.translate("{TOPBAR.ACCOUNT.LOGOUT}"));
         jMenuItemDeleteAccount.setText(translationService.translate("{TOPBAR.ACCOUNT.DELETEACCOUNT}"));
-        
-        
+
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupLanguage;
