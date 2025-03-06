@@ -29,3 +29,9 @@
 {ERROR.DUPLICATEDNICK},A user with the same nickname already exists
 {ERROR.WRONGLOGIN},Incorrect username or password
 {ERROR.UNKNOWN},Unknown error
+{TICTACTOE.LOSE},
+{TICTACTOE.WIN},
+{CONNECTFOUR.LOSE},
+{CONNECTFOUR.WIN},
+{MINESWEEPER.LOSE},
+{MINESWEEPER.WIN},

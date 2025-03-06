@@ -116,7 +116,7 @@ public class Buscaminas extends JDialog {
 
         if (esMina[x][y]) {
             mostrarMinas();
-            JOptionPane.showMessageDialog(this, "¡Has perdido!");
+            JOptionPane.showMessageDialog(this, translationService.translate("{MINESWEEPER.LOSE}"));
             iniciarJuego();
             return;
         }
@@ -137,7 +137,7 @@ public class Buscaminas extends JDialog {
         }
 
         if (celdasReveladas == (filas * columnas - minas)) {
-            JOptionPane.showMessageDialog(this, "¡Has ganado!");
+            JOptionPane.showMessageDialog(this, translationService.translate("{MINESWEEPER.WIN}"));
             iniciarJuego();
         }
     }

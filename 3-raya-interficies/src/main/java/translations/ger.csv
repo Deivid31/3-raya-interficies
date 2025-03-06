@@ -29,3 +29,9 @@
 {ERROR.DUPLICATEDNICK},Ein Benutzer mit diesem Spitznamen existiert bereits
 {ERROR.WRONGLOGIN},Benutzername oder Passwort falsch
 {ERROR.UNKNOWN},Unbekannter Fehler
+{TICTACTOE.LOSE},
+{TICTACTOE.WIN},
+{CONNECTFOUR.LOSE},
+{CONNECTFOUR.WIN},
+{MINESWEEPER.LOSE},
+{MINESWEEPER.WIN},
