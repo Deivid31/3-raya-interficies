@@ -42,8 +42,9 @@ public class GameSelectorGUI extends javax.swing.JFrame {
             java.awt.Component component = jMenuLanguage.getMenuComponent(i);
 
             if (component instanceof JRadioButtonMenuItem radioButton) {
-                String text = radioButton.getText();
-                System.out.println("Nombre del item: " + text);
+                String temp = radioButton.getText().split("\\|")[0];
+                if (translationService.getLanguage().equalsIgnoreCase(temp))
+                    radioButton.setSelected(true);
             }
         }
     }
@@ -249,7 +250,6 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         jMenuLanguage.add(jRadioButton3);
 
         buttonGroupLanguage.add(jRadioButton4);
-        jRadioButton4.setSelected(true);
         jRadioButton4.setText("ESP| Español");
         jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -416,7 +416,6 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         jMenuAccount.setText(translationService.translate("{TOPBAR.ACCOUNT}"));
         jMenuItemLogOut.setText(translationService.translate("{TOPBAR.ACCOUNT.LOGOUT}"));
         jMenuItemDeleteAccount.setText(translationService.translate("{TOPBAR.ACCOUNT.DELETEACCOUNT}"));
-
     }
 
 
