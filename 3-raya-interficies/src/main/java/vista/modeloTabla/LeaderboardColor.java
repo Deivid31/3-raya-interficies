@@ -6,17 +6,16 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
 public class LeaderboardColor extends DefaultTableCellRenderer {
+    
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-        // Call parent method to get default rendering
         Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-
-        // Set colors for the top 3 rows
-        if (row == 0) {
+        int pos = Integer.parseInt(table.getValueAt(row, 0).toString());
+        if (pos == 1) {
             cell.setBackground(Color.YELLOW); // Gold
-        } else if (row == 1) {
+        } else if (pos == 2) {
             cell.setBackground(Color.LIGHT_GRAY); // Silver
-        } else if (row == 2) {
+        } else if (pos == 3) {
             cell.setBackground(new Color(139, 69, 19)); // Brown (Bronze)
             cell.setForeground(Color.WHITE); // Improve contrast
         } else {
