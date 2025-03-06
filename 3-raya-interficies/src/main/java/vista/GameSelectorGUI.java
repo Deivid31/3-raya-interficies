@@ -11,7 +11,7 @@ import javax.swing.JRadioButtonMenuItem;
 import juego.Buscaminas;
 import juego.CuatroEnRaya;
 import juego.ElegirSimbolo;
-import juego.TresEnRaya;
+import juego.Tres;
 import model.Usuari;
 import org.openide.util.Exceptions;
 import services.TranslationService;
