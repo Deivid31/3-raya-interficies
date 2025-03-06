@@ -383,7 +383,7 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     private void changeLanguage(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeLanguage
 
         Object source = evt.getSource();
-        if (source instanceof JRadioButtonMenuItem menuItem) { // Comprobar que es un JRadioButtonMenuItem
+        if (source instanceof JRadioButtonMenuItem menuItem) {
             String[] temp = menuItem.getText().split("\\|");
             translationService.setLanguage(temp[0]);
             translatePage();
