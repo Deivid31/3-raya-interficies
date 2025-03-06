@@ -12,6 +12,7 @@ import persistence.GameDAO;
 public class LoginGUI extends javax.swing.JFrame {
     private TranslationService translationService;
     private GameDAO gameDAO;
+    static private LoginGUI instance = null; 
 
     public LoginGUI() {
         initComponents();
@@ -190,6 +191,15 @@ public class LoginGUI extends javax.swing.JFrame {
         jLabelPasswd.setText(translationService.translate("{PASSWORD}") + ":");
     }
     
+    
+    
+    public static LoginGUI getInstance(){
+        if(instance == null)
+            instance = new LoginGUI();  
+
+        return instance;
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;

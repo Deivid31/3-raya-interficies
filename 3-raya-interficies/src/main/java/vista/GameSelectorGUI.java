@@ -273,7 +273,8 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonMineSweeperActionPerformed
 
     private void jMenuItemLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLogOutActionPerformed
-        parent.setVisible(true);
+        LoginGUI loginGUI = LoginGUI.getInstance();
+        loginGUI.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItemLogOutActionPerformed
    

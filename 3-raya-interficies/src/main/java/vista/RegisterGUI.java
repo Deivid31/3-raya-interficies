@@ -51,6 +51,7 @@ public class RegisterGUI extends javax.swing.JFrame {
         jLabelEmail = new javax.swing.JLabel();
         jTextFieldEmail = new javax.swing.JTextField();
         validationPanel = new org.netbeans.validation.api.ui.swing.ValidationPanel();
+        jComboBoxLang = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
@@ -89,6 +90,18 @@ public class RegisterGUI extends javax.swing.JFrame {
 
         validationPanel.setBorder(null);
 
+        jComboBoxLang.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jComboBoxLang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cambiar Idioma...", "Árabe", "Catalán", "Inglés", "Español", "Francés", "Alemán", "Ruso" }));
+        jComboBoxLang.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                jComboBoxLangPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,7 +114,8 @@ public class RegisterGUI extends javax.swing.JFrame {
                         .addComponent(jButtonLogin)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                         .addComponent(jButtonCreateUser))
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBoxLang, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
@@ -126,7 +140,9 @@ public class RegisterGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(5, 5, 5)
+                .addComponent(jComboBoxLang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelEmail))
@@ -176,6 +192,13 @@ public class RegisterGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonCreateUserActionPerformed
 
+    private void jComboBoxLangPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jComboBoxLangPopupMenuWillBecomeInvisible
+        String[] codeLang = {"", "ARAB", "CAT", "ENG", "ES", "FRA", "GER", "RUS"};
+        codeLang[0] = translationService.getLanguage();
+        translationService.setLanguage(codeLang[jComboBoxLang.getSelectedIndex()]);
+        translatePage();
+    }//GEN-LAST:event_jComboBoxLangPopupMenuWillBecomeInvisible
+
     private void translatePage() {
         this.setTitle(translationService.translate("{TITLE.REGISTER}"));
         
@@ -192,6 +215,7 @@ public class RegisterGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCreateUser;
     private javax.swing.JButton jButtonLogin;
+    private javax.swing.JComboBox<String> jComboBoxLang;
     private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelNick;
     private javax.swing.JLabel jLabelPasswd;
