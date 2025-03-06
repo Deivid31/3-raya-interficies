@@ -57,8 +57,6 @@ public class Buscaminas extends JDialog {
         }
 
         iniciarJuego();
-        
-        setVisible(true);
     }
 
     private void iniciarJuego() {
