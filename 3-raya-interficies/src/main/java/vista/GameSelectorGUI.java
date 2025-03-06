@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButtonMenuItem;
 import juego.Buscaminas;
 import juego.CuatroEnRaya;
-import juego.ElegirSimbolo;
+import juego.ElegirSimbolox;
 import juego.TresEnRaya;
 import model.Usuari;
 import org.openide.util.Exceptions;
@@ -332,12 +332,12 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3RayaActionPerformed
-        ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, true);
+        ElegirSimbolox elegirSimbolo = new ElegirSimbolox(this, translationService, user, true);
         elegirSimbolo.setVisible(true);
     }//GEN-LAST:event_jButton3RayaActionPerformed
 
     private void jButton4RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4RayaActionPerformed
-        ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, false);
+        ElegirSimbolox elegirSimbolo = new ElegirSimbolox(this, translationService, user, false);
         elegirSimbolo.setVisible(true);
     }//GEN-LAST:event_jButton4RayaActionPerformed
 
@@ -364,12 +364,12 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemLeaderboardActionPerformed
 
     private void jMenuItem3RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3RayaActionPerformed
-        ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, true);
+        ElegirSimbolox elegirSimbolo = new ElegirSimbolox(this, translationService, user, true);
         elegirSimbolo.setVisible(true);
     }//GEN-LAST:event_jMenuItem3RayaActionPerformed
 
     private void jMenuItem4RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4RayaActionPerformed
-        ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, false);
+        ElegirSimbolox elegirSimbolo = new ElegirSimbolox(this, translationService, user, false);
         elegirSimbolo.setVisible(true);
     }//GEN-LAST:event_jMenuItem4RayaActionPerformed
 
