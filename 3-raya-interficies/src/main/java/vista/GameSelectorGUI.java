@@ -355,12 +355,12 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemLeaderboardActionPerformed
 
     private void jMenuItem3RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3RayaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3RayaActionPerformed
+        ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, true);
+        elegirSimbolo.setVisible(true);    }//GEN-LAST:event_jMenuItem3RayaActionPerformed
 
     private void jMenuItem4RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4RayaActionPerformed
-        CuatroEnRaya ventana = new CuatroEnRaya(this, translationService, user);
-        ventana.setVisible(true);
+        ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, false);
+        elegirSimbolo.setVisible(true);
     }//GEN-LAST:event_jMenuItem4RayaActionPerformed
 
     private void jMenuItemMineSweeperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMineSweeperActionPerformed

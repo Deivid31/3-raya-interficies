@@ -285,7 +285,6 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
         botonPresionado.setBorder(new LineBorder(Color.BLUE,2));
         botonPresionado.setForeground(Color.blue);
     }
-    // Verificar si hay un ganador
     if (hayGanador()) {
         JOptionPane.showMessageDialog(this, "¡Gana " + (turnoX ? "X" : "O") + "!");
         try {
