@@ -7,7 +7,7 @@
 {LANGUAGE.RUSSIAN},Русский
 {TITLE.LOGIN},Вход
 {TITLE.REGISTER},Регистрация пользователя
-{TITLE.GAMESELECTOR},
+{TITLE.GAMESELECTOR},Выбор игры
 {NICKNAME},Псевдоним
 {PASSWORD},Пароль
 {EMAIL},Электронная почта
@@ -15,17 +15,17 @@
 {REGISTER},Зарегистрироваться
 {CREATEUSER},Создать пользователя
 {SELECTLANGUAGE},Выбрать язык
-{TICTACTOE},
-{CONNECTFOUR},
-{MINESWEEPER},
-{TOPBAR.NAVIGATOR}
-{TOPBAR.NAVIGATOR.LEADERBOARD},
-{TOPBAR.LANGUAGES},
-{TOPBAR.ACCOUNT},
-{TOPBAR.ACCOUNT.LOGOUT},
-{TOPBAR.ACCOUNT.DELETEACCOUNT},
-{SUCCESSREGISTER},
-{ERROR.DUPLICATEDEMAIL},
-{ERROR.DUPLICATEDNICK},
-{ERROR.WRONGLOGIN},
-{ERROR.UNKNOWN},
+{TICTACTOE},Крестики-нолики
+{CONNECTFOUR},Соединить 4
+{MINESWEEPER},Сапер
+{TOPBAR.NAVIGATOR},Навигатор
+{TOPBAR.NAVIGATOR.LEADERBOARD},Таблица лидеров
+{TOPBAR.LANGUAGES},Языки
+{TOPBAR.ACCOUNT},Аккаунт
+{TOPBAR.ACCOUNT.LOGOUT},Выйти
+{TOPBAR.ACCOUNT.DELETEACCOUNT},Удалить аккаунт
+{SUCCESSREGISTER},Регистрация прошла успешно
+{ERROR.DUPLICATEDEMAIL},Электронная почта уже используется
+{ERROR.DUPLICATEDNICK},Пользователь с таким псевдонимом уже существует
+{ERROR.WRONGLOGIN},Неверное имя пользователя или пароль
+{ERROR.UNKNOWN},Неизвестная ошибка
