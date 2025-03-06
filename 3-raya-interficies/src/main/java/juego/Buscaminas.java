@@ -5,13 +5,14 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.SQLException;
 import java.util.Random;
+import model.Usuari;
 import persistence.GameDAO;
 import services.TranslationService;
 
 public class Buscaminas extends JDialog {
     private JFrame parent;
     private TranslationService translationService;
-    private final String user;
+    private final Usuari user;
     private GameDAO dao = new GameDAO();
     private final int filas = 8;
     private final int columnas = 8;
@@ -22,7 +23,7 @@ public class Buscaminas extends JDialog {
     private boolean[][] marcado;
     private int celdasReveladas;
     
-    public Buscaminas(JFrame parent, TranslationService translationService, String user) {
+    public Buscaminas(JFrame parent, TranslationService translationService, Usuari user) {
         super(parent, "Buscaminas", true);
         this.parent = parent;
         this.translationService = translationService;

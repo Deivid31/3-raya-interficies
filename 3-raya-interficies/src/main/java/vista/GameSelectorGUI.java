@@ -2,12 +2,15 @@ package vista;
 
 import java.awt.Image;
 import java.awt.List;
+import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import juego.Buscaminas;
 import juego.CuatroEnRaya;
 import juego.tresenraya;
+import model.Usuari;
+import org.openide.util.Exceptions;
 import services.TranslationService;
 import persistence.GameDAO;
 
@@ -15,16 +18,15 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     private TranslationService translationService;
     private JFrame parent;
     private GameDAO gameDAO;
-    private String user;
+    private Usuari user;
 
-    public GameSelectorGUI(JFrame parent, TranslationService translationService, String user) {
+    public GameSelectorGUI(JFrame parent, TranslationService translationService, Usuari user) {
         initComponents();
         this.parent = parent;
         this.translationService = translationService;
         this.user = user;
         ImageIcon img = new ImageIcon("src\\main\\java\\images\\icon.png");
         setIconImage(img.getImage());
-        this.translationService = translationService;
         translatePage();
         
         //Iconos
@@ -176,6 +178,11 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         jMenuNavigator.add(jMenuItemMineSweeper);
 
         jMenuItemLeaderboard.setText("Clasificación...");
+        jMenuItemLeaderboard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLeaderboardActionPerformed(evt);
+            }
+        });
         jMenuNavigator.add(jMenuItemLeaderboard);
 
         jMenuBar1.add(jMenuNavigator);
@@ -277,6 +284,17 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         loginGUI.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItemLogOutActionPerformed
+
+    private void jMenuItemLeaderboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLeaderboardActionPerformed
+        try {
+            Highscores leaderboard = new Highscores(this, translationService);
+            this.setVisible(false);
+            leaderboard.setVisible(true);
+        } catch (SQLException ex) {
+            Exceptions.printStackTrace(ex);
+        }
+       
+    }//GEN-LAST:event_jMenuItemLeaderboardActionPerformed
    
     
     

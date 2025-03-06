@@ -10,11 +10,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
+import model.Usuari;
 import persistence.GameDAO;
 import services.TranslationService;
 
 public class tresenraya extends javax.swing.JFrame implements ActionListener {
-    private final String user;
+    private final Usuari user;
     private GameDAO dao = new GameDAO();
     private JFrame parent;
     private TranslationService translationService;
@@ -48,7 +49,7 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener {
     /**
      * Constructor
      */
-    public tresenraya(JFrame parent, TranslationService translationService, String user) {
+    public tresenraya(JFrame parent, TranslationService translationService, Usuari user) {
         this.parent = parent;
         this.translationService = translationService;
         this.user = user;

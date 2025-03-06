@@ -15,6 +15,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
+import model.Usuari;
 import persistence.GameDAO;
 import services.TranslationService;
 
@@ -25,14 +26,14 @@ import services.TranslationService;
 public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener{
     private JFrame parent;
     private TranslationService translationService;
-    private final String user;
+    private final Usuari user;
     private GameDAO dao = new GameDAO();
     private boolean turnoX = true;
     private final int FILAS = 6;
     private final int COLUMNAS = 7;
     private JButton[][] botones = new JButton[FILAS][COLUMNAS];
 
-    public CuatroEnRaya(JFrame parent, TranslationService translationService, String user) {
+    public CuatroEnRaya(JFrame parent, TranslationService translationService, Usuari user) {
         this.parent = parent;
         this.translationService = translationService;
         this.user = user;

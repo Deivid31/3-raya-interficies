@@ -157,7 +157,7 @@ public class LoginGUI extends javax.swing.JFrame {
                 if(!gameDAO.checkPasswd(jugador.getNick(), jPasswordFieldPasswd.getText())) {
                     JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.WRONGLOGIN}"), "", JOptionPane.WARNING_MESSAGE);
                 } else {
-                    GameSelectorGUI gameSelectorGUI = new GameSelectorGUI(this, translationService, jTextFieldNick.getText().toLowerCase());
+                    GameSelectorGUI gameSelectorGUI = new GameSelectorGUI(this, translationService, gameDAO.getInfoUser(jTextFieldNick.getText().toLowerCase()));
                     gameSelectorGUI.setLocationRelativeTo(null);
                     gameSelectorGUI.setVisible(true);
                     this.setVisible(false);
