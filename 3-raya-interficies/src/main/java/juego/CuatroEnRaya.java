@@ -28,12 +28,13 @@ public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener{
     private TranslationService translationService;
     private final Usuari user;
     private GameDAO dao = new GameDAO();
+    private boolean symbol;
     private boolean turnoX = true;
     private final int FILAS = 6;
     private final int COLUMNAS = 7;
     private JButton[][] botones = new JButton[FILAS][COLUMNAS];
 
-    public CuatroEnRaya(JFrame parent, TranslationService translationService, Usuari user) {
+    public CuatroEnRaya(JFrame parent, TranslationService translationService, Usuari user, boolean symbol) {
         this.parent = parent;
         this.translationService = translationService;
         this.user = user;

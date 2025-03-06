@@ -14,11 +14,12 @@ import model.Usuari;
 import persistence.GameDAO;
 import services.TranslationService;
 
-public class tresenraya extends javax.swing.JFrame implements ActionListener {
+public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
     private final Usuari user;
     private GameDAO dao = new GameDAO();
     private JFrame parent;
     private TranslationService translationService;
+    private boolean symbol;
     private boolean turnoX = true;
     JButton[][] botones = new JButton[3][3];
     
@@ -49,7 +50,7 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener {
     /**
      * Constructor
      */
-    public tresenraya(JFrame parent, TranslationService translationService, Usuari user) {
+    public TresEnRaya(JFrame parent, TranslationService translationService, Usuari user, boolean symbol) {
         this.parent = parent;
         this.translationService = translationService;
         this.user = user;
@@ -288,7 +289,7 @@ public class tresenraya extends javax.swing.JFrame implements ActionListener {
     if (hayGanador()) {
         JOptionPane.showMessageDialog(this, "¡Gana " + (turnoX ? "X" : "O") + "!");
         try {
-            if (turnoX) dao.result(user, 1);
+            if (turnoX == symbol) dao.result(user, 1);
             else dao.result(user, 0);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
