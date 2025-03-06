@@ -14,7 +14,7 @@ import model.Usuari;
 import persistence.GameDAO;
 import services.TranslationService;
 
-public class Tres extends javax.swing.JFrame implements ActionListener {
+public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
     private final Usuari user;
     private GameDAO dao = new GameDAO();
     private JFrame parent;
@@ -50,10 +50,11 @@ public class Tres extends javax.swing.JFrame implements ActionListener {
     /**
      * Constructor
      */
-    public Tres(JFrame parent, TranslationService translationService, Usuari user, boolean symbol) {
+    public TresEnRaya(JFrame parent, TranslationService translationService, Usuari user, boolean symbol) {
         this.parent = parent;
         this.translationService = translationService;
         this.user = user;
+        this.symbol = symbol;
         
         initComponents();
         botones[0][0] = jButton1;

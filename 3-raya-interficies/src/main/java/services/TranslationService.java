@@ -103,7 +103,7 @@ public class TranslationService {
     public String translate(String str) {
         //TODO: Traducir el string que nos pasen
         switch (language) {
-            case "ARAB":
+            case "ARB":
                 return arab.getOrDefault(str, str);
             case "CAT":
                 return catalan.getOrDefault(str, str);

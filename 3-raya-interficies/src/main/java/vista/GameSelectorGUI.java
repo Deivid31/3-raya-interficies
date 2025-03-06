@@ -10,8 +10,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButtonMenuItem;
 import juego.Buscaminas;
 import juego.CuatroEnRaya;
-//import juego.ElegirSimbolo;
-import juego.Tres;
+import juego.ElegirSimbolo;
+import juego.TresEnRaya;
 import model.Usuari;
 import org.openide.util.Exceptions;
 import services.TranslationService;
@@ -332,13 +332,13 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3RayaActionPerformed
-        //ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, true);
-        //elegirSimbolo.setVisible(true);
+        ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, true);
+        elegirSimbolo.setVisible(true);
     }//GEN-LAST:event_jButton3RayaActionPerformed
 
     private void jButton4RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4RayaActionPerformed
-        //ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, false);
-        //elegirSimbolo.setVisible(true);
+        ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, false);
+        elegirSimbolo.setVisible(true);
     }//GEN-LAST:event_jButton4RayaActionPerformed
 
     private void jButtonMineSweeperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMineSweeperActionPerformed
@@ -364,13 +364,13 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemLeaderboardActionPerformed
 
     private void jMenuItem3RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3RayaActionPerformed
-        //ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, true);
-        //elegirSimbolo.setVisible(true);
+        ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, true);
+        elegirSimbolo.setVisible(true);
     }//GEN-LAST:event_jMenuItem3RayaActionPerformed
 
     private void jMenuItem4RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4RayaActionPerformed
-        //ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, false);
-        //elegirSimbolo.setVisible(true);
+        ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, false);
+        elegirSimbolo.setVisible(true);
     }//GEN-LAST:event_jMenuItem4RayaActionPerformed
 
     private void jMenuItemMineSweeperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMineSweeperActionPerformed
@@ -383,7 +383,7 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     private void changeLanguage(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeLanguage
 
         Object source = evt.getSource();
-        if (source instanceof JRadioButtonMenuItem menuItem) { // Comprobar que es un JRadioButtonMenuItem
+        if (source instanceof JRadioButtonMenuItem menuItem) {
             String[] temp = menuItem.getText().split("\\|");
             translationService.setLanguage(temp[0]);
             translatePage();

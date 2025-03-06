@@ -38,6 +38,7 @@ public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener{
         this.parent = parent;
         this.translationService = translationService;
         this.user = user;
+        this.symbol = symbol;
         
         setTitle("4 en Raya");
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
