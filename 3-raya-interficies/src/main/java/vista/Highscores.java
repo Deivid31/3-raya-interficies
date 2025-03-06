@@ -4,10 +4,14 @@ import java.awt.Component;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import persistence.GameDAO;
 import services.TranslationService;
 import vista.modeloTabla.LeaderboardColor;
@@ -23,6 +27,7 @@ public class Highscores extends javax.swing.JFrame {
         this.parent = parent;
         this.translationService = translationService;
         gameDAO = new GameDAO();
+        jLabelNick.setName(translationService.translate("{NICKNAME}") + ":");
         jTaLeaderboard.setModel(new LeaderboardTableModel(gameDAO.getUsers()));
         adjustColumnWidths(jTaLeaderboard);
         LeaderboardColor leaderboardColor = new LeaderboardColor();
@@ -54,6 +59,8 @@ public class Highscores extends javax.swing.JFrame {
         }
     }
     
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -65,8 +72,7 @@ public class Highscores extends javax.swing.JFrame {
         jTextFieldNick = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login");
-        setResizable(false);
+        setTitle("Leaderboard");
 
         jTaLeaderboard.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -98,7 +104,11 @@ public class Highscores extends javax.swing.JFrame {
 
         jLabelNick.setText("jLabel1");
 
-        jTextFieldNick.setText("jTextField1");
+        jTextFieldNick.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNickActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,7 +119,7 @@ public class Highscores extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabelNick)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldNick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldNick, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -125,6 +135,12 @@ public class Highscores extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextFieldNickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNickActionPerformed
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(((LeaderboardTableModel) jTaLeaderboard.getModel())); 
+        sorter.setRowFilter(RowFilter.regexFilter("^(?i)" + jTextFieldNick.getText(), 1));
+        jTaLeaderboard.setRowSorter(sorter);
+    }//GEN-LAST:event_jTextFieldNickActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupLanguage;
