@@ -6,6 +6,7 @@ public class Usuari {
     private String passwd;
     private int partidas;
     private int vict;
+    private double porcentaje;
 
     public Usuari(String email, String nick, String passwd) {
         this.email = email;
@@ -19,6 +20,11 @@ public class Usuari {
         this.passwd = passwd;
         this.partidas = partidas; 
         this.vict = vict;
+        if(partidas > 0) {
+            porcentaje = (double) vict / partidas * 100;
+        } else {
+            porcentaje = 0;
+        }
     }
 
     public String getEmail() {
@@ -59,5 +65,13 @@ public class Usuari {
 
     public void setVict(int vict) {
         this.vict = vict;
+    }
+    
+    public double getPorcentaje() {
+        return porcentaje;
+    }
+
+    public void setPorcentaje(double porcentaje) {
+        this.porcentaje = porcentaje;
     }
 }
