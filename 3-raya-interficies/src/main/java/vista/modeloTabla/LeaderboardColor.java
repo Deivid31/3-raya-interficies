@@ -12,9 +12,11 @@ public class LeaderboardColor extends DefaultTableCellRenderer {
         Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         int pos = Integer.parseInt(table.getValueAt(row, 0).toString());
         if (pos == 1) {
-            cell.setBackground(Color.YELLOW); // Gold
+            cell.setBackground(Color.YELLOW);
+            cell.setForeground(Color.BLACK);
         } else if (pos == 2) {
             cell.setBackground(Color.LIGHT_GRAY); // Silver
+            cell.setForeground(Color.BLACK);
         } else if (pos == 3) {
             cell.setBackground(new Color(139, 69, 19)); // Brown (Bronze)
             cell.setForeground(Color.WHITE); // Improve contrast
