@@ -36,8 +36,7 @@
 {TICTACTOE.ISTURN},Turno de:
 {TICTACTOE.CLOSE},Cerrar juego
 {TICTACTOE.RESTART},Reiniciar partida
-{CONNECTFOUR.LOSE},¡Has perdido!
-{CONNECTFOUR.WIN},¡Has ganado!
+{CONNECTFOUR.WIN},¡Gana
 {MINESWEEPER.LOSE},Has pisado una mina :(
 {MINESWEEPER.WIN},Has ganado :D
 {LEADERBORD.POSITION},Puesto
