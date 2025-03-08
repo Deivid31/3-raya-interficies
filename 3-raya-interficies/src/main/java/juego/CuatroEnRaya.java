@@ -132,11 +132,6 @@ public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener{
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,12 +146,6 @@ public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        GameSelectorGUI gs = new GameSelectorGUI(null, translationService, user);
-        gs.setVisible(true);
-    }//GEN-LAST:event_formWindowClosed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
