@@ -13,8 +13,8 @@ public class ElegirSimbolo extends javax.swing.JDialog {
     private boolean juego;
 
 
-    public ElegirSimbolo(java.awt.Frame parent, TranslationService translationService, Usuari user, boolean juego) {
-        this.parent = this.parent;
+    public ElegirSimbolo(JFrame parent, TranslationService translationService, Usuari user, boolean juego) {
+        this.parent = parent;
         this.translationService = translationService;
         this.user = user;
         this.juego = juego;
