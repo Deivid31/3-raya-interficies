@@ -8,9 +8,9 @@
 {TITLE.LOGIN},Connexion
 {TITLE.REGISTER},Inscription utilisateur
 {TITLE.GAMESELECTOR},Sélectionner le jeu
-{TITLE.TICTACTOE},
-{TITLE.CONNECTFOUR},
-{TITLE.MINESWEEPER},
+{TITLE.TICTACTOE},Tic Tac Toe
+{TITLE.CONNECTFOUR},Puissance 4
+{TITLE.MINESWEEPER},Démineur
 {NICKNAME},Pseudo
 {PASSWORD},Mot de passe
 {EMAIL},E-mail
@@ -23,24 +23,26 @@
 {MINESWEEPER},Démineur
 {TOPBAR.NAVIGATOR},Navigateur
 {TOPBAR.NAVIGATOR.LEADERBOARD},Classement
+{TOPBAR.NAVIGATOR.MAIN},Menu principal
 {TOPBAR.LANGUAGES},Langues
 {TOPBAR.ACCOUNT},Compte
 {TOPBAR.ACCOUNT.LOGOUT},Se déconnecter
-{TOPBAR.ACCOUNT.DELETEACCOUNT},Supprimer le compte
+{TOPBAR.ACCOUNT.DELETEACCOUNT},Supprimer le compte  
+{TOPBAR.ACCOUNT.DELETEACCOUNTCONF},Êtes-vous sûr de vouloir supprimer votre compte?
 {SUCCESSREGISTER},Inscription réussie
 {ERROR.DUPLICATEDEMAIL},L'email est déjà utilisé
 {ERROR.DUPLICATEDNICK},Un utilisateur avec ce pseudo existe déjà
 {ERROR.WRONGLOGIN},Nom d'utilisateur ou mot de passe incorrect
 {ERROR.UNKNOWN},Erreur inconnue
-{TICTACTOE.WIN},
-{TICTACTOE.ISTURN},
-{TICTACTOE.CLOSE},
-{TICTACTOE.RESTART},
-{CONNECTFOUR.WIN},
-{MINESWEEPER.LOSE},
-{MINESWEEPER.WIN},
-{LEADERBORD.POSITION},
-{LEADERBORD.PLAYER},
-{LEADERBORD.PERCENTAGE},
-{LEADERBORD.VICTORIES},
-{LEADERBORD.GAMES},
+{TICTACTOE.WIN},Gagne!  
+{TICTACTOE.ISTURN},Tour de :  
+{TICTACTOE.CLOSE},Fermer le jeu  
+{TICTACTOE.RESTART},Recommencer la partie  
+{CONNECTFOUR.WIN},Gagne!  
+{MINESWEEPER.LOSE},Tu as marché sur une mine :(  
+{MINESWEEPER.WIN},Tu as gagné! :D 
+{LEADERBORD.POSITION},Position  
+{LEADERBORD.PLAYER},Joueur  
+{LEADERBORD.PERCENTAGE},% Victoires  
+{LEADERBORD.VICTORIES},Victoires totales  
+{LEADERBORD.GAMES},Parties totales 

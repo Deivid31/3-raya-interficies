@@ -4,10 +4,13 @@ import java.awt.Image;
 import java.sql.SQLException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButtonMenuItem;
 import juego.Buscaminas;
 import juego.ElegirSimbolo;
 import model.Usuari;
+import org.openide.util.Exceptions;
+import persistence.GameDAO;
 import services.TranslationService;
 
 public class GameSelectorGUI extends javax.swing.JFrame {
@@ -15,12 +18,14 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     private TranslationService translationService;
     private JFrame parent;
     private Usuari user;
+    private GameDAO gameDAO;
 
     public GameSelectorGUI(JFrame parent, TranslationService translationService, Usuari user) {
         initComponents();
         this.parent = parent;
         this.translationService = translationService;
         this.user = user;
+        gameDAO = new GameDAO();
         ImageIcon img = new ImageIcon("src\\main\\java\\images\\icon.png");
         setIconImage(img.getImage());
         translatePage();
@@ -291,6 +296,11 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         jMenuAccount.add(jMenuItemLogOut);
 
         jMenuItemDeleteAccount.setText("Borrar cuenta");
+        jMenuItemDeleteAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemDeleteAccountActionPerformed(evt);
+            }
+        });
         jMenuAccount.add(jMenuItemDeleteAccount);
 
         jMenuBar1.add(jMenuAccount);
@@ -350,10 +360,9 @@ public class GameSelectorGUI extends javax.swing.JFrame {
 
     private void jMenuItemLeaderboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLeaderboardActionPerformed
         try {
-            Highscores leaderboard = new Highscores(this, translationService);
+            Highscores leaderboard = new Highscores(this, translationService, user);
             this.setVisible(false);
             leaderboard.setVisible(true);
-            this.setVisible(false);
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -390,6 +399,20 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_changeLanguage
+
+    private void jMenuItemDeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDeleteAccountActionPerformed
+        int res = JOptionPane.showConfirmDialog(null, translationService.translate("{TOPBAR.ACCOUNT.DELETEACCOUNTCONF}"), translationService.translate("{TOPBAR.ACCOUNT.DELETEACCOUNT}"), JOptionPane.YES_NO_OPTION); 
+        if (res == JOptionPane.YES_OPTION) {
+            try {
+                gameDAO.delUser(user);
+                LoginGUI loginGUI = LoginGUI.getInstance();
+                loginGUI.setVisible(true);
+                this.dispose();
+            } catch (SQLException ex) {
+                Exceptions.printStackTrace(ex);
+            }
+        }
+    }//GEN-LAST:event_jMenuItemDeleteAccountActionPerformed
 
     private void translatePage() {
         this.setTitle(translationService.translate("{TITLE.GAMESELECTOR}"));

@@ -293,6 +293,11 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
         jMenuAccount.add(jMenuItemLogOut);
 
         jMenuItemDeleteAccount.setText("Borrar cuenta");
+        jMenuItemDeleteAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemDeleteAccountActionPerformed(evt);
+            }
+        });
         jMenuAccount.add(jMenuItemDeleteAccount);
 
         jMenuBar3.add(jMenuAccount);
@@ -385,7 +390,7 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
 
     private void jMenuItemLeaderboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLeaderboardActionPerformed
         try {
-            Highscores leaderboard = new Highscores(this, translationService);
+            Highscores leaderboard = new Highscores(this, translationService, user);
             this.setVisible(false);
             leaderboard.setVisible(true);
         } catch (SQLException ex) {
@@ -417,6 +422,20 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
         loginGUI.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItemLogOutActionPerformed
+
+    private void jMenuItemDeleteAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDeleteAccountActionPerformed
+        int res = JOptionPane.showConfirmDialog(null, translationService.translate("{TOPBAR.ACCOUNT.DELETEACCOUNTCONF}"), translationService.translate("{TOPBAR.ACCOUNT.DELETEACCOUNT}"), JOptionPane.YES_NO_OPTION); 
+        if (res == JOptionPane.YES_OPTION) {
+            try {
+                dao.delUser(user);
+                LoginGUI loginGUI = LoginGUI.getInstance();
+                loginGUI.setVisible(true);
+                this.dispose();
+            } catch (SQLException ex) {
+                Exceptions.printStackTrace(ex);
+            }
+        }
+    }//GEN-LAST:event_jMenuItemDeleteAccountActionPerformed
 
     /**
      * @param args the command line arguments

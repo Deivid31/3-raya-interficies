@@ -381,7 +381,7 @@ public class Buscaminas extends JDialog {
 
     private void jMenuItemLeaderboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLeaderboardActionPerformed
         try {
-            Highscores leaderboard = new Highscores(LoginGUI.getInstance(), translationService);
+            Highscores leaderboard = new Highscores(LoginGUI.getInstance(), translationService, user);
             this.setVisible(false);
             leaderboard.setVisible(true);
         } catch (SQLException ex) {

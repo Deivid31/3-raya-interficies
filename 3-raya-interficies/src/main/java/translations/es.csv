@@ -23,10 +23,12 @@
 {MINESWEEPER},Busca Minas
 {TOPBAR.NAVIGATOR},Navegador
 {TOPBAR.NAVIGATOR.LEADERBOARD},Clasificación
+{TOPBAR.NAVIGATOR.MAIN},Menu principal
 {TOPBAR.LANGUAGES},Idiomas
 {TOPBAR.ACCOUNT},Cuenta
 {TOPBAR.ACCOUNT.LOGOUT},Cerrar sesión
-{TOPBAR.ACCOUNT.DELETEACCOUNT},Borrar cuenta
+{TOPBAR.ACCOUNT.DELETEACCOUNT},Eliminar cuenta
+{TOPBAR.ACCOUNT.DELETEACCOUNTCONF},¿Seguro que quieres eliminar tu cuenta?
 {SUCCESSREGISTER},Registro exitoso
 {ERROR.DUPLICATEDEMAIL},El correo ya está en uso
 {ERROR.DUPLICATEDNICK},Ya existe un usuario con el mismo apodo

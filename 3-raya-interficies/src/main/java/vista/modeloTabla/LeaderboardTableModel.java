@@ -6,7 +6,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import model.Usuari;
 
-
+//Configuracion del modelo de la tabla
 public class LeaderboardTableModel extends AbstractTableModel {
     private List<Usuari> leaderboardDelModel;
     private final String[] titolsColumnes = {"Puesto", "Jugador", "% Victorias", "Victorias totales", "Partidas totales"};

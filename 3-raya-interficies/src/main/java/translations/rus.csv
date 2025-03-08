@@ -23,24 +23,26 @@
 {MINESWEEPER},Сапер
 {TOPBAR.NAVIGATOR},Навигатор
 {TOPBAR.NAVIGATOR.LEADERBOARD},Таблица лидеров
+{TOPBAR.NAVIGATOR.MAIN},Главное меню
 {TOPBAR.LANGUAGES},Языки
 {TOPBAR.ACCOUNT},Аккаунт
 {TOPBAR.ACCOUNT.LOGOUT},Выйти
-{TOPBAR.ACCOUNT.DELETEACCOUNT},Удалить аккаунт
+{TOPBAR.ACCOUNT.DELETEACCOUNT},Удалить аккаунт  
+{TOPBAR.ACCOUNT.DELETEACCOUNTCONF},Вы уверены что хотите удалить свой аккаунт?
 {SUCCESSREGISTER},Регистрация прошла успешно
 {ERROR.DUPLICATEDEMAIL},Электронная почта уже используется
 {ERROR.DUPLICATEDNICK},Пользователь с таким псевдонимом уже существует
 {ERROR.WRONGLOGIN},Неверное имя пользователя или пароль
 {ERROR.UNKNOWN},Неизвестная ошибка
-{TICTACTOE.WIN},
-{TICTACTOE.ISTURN},
-{TICTACTOE.CLOSE},
-{TICTACTOE.RESTART},
-{CONNECTFOUR.WIN},
-{MINESWEEPER.LOSE},
-{MINESWEEPER.WIN},
-{LEADERBORD.POSITION},
-{LEADERBORD.PLAYER},
-{LEADERBORD.PERCENTAGE},
-{LEADERBORD.VICTORIES},
-{LEADERBORD.GAMES},
+{TICTACTOE.WIN},Победил!  
+{TICTACTOE.ISTURN},Ходит:  
+{TICTACTOE.CLOSE},Закрыть игру  
+{TICTACTOE.RESTART},Перезапустить игру  
+{CONNECTFOUR.WIN},Победил!  
+{MINESWEEPER.LOSE},Ты наступил на мину :(  
+{MINESWEEPER.WIN},Ты выиграл! :D 
+{LEADERBORD.POSITION},Позиция  
+{LEADERBORD.PLAYER},Игрок  
+{LEADERBORD.PERCENTAGE},% Побед  
+{LEADERBORD.VICTORIES},Всего побед  
+{LEADERBORD.GAMES},Всего игр 
