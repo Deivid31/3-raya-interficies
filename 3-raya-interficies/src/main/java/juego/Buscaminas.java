@@ -13,8 +13,8 @@ import vista.Highscores;
 import vista.LoginGUI;
 
 public class Buscaminas extends JDialog {
-    private JPanel gamePanel; // Este panel ya lo has añadido en NetBeans
-    private JMenuBar menuBar; // Este también se ha añadido desde NetBeans
+    private JPanel gamePanel;
+    private JMenuBar menuBar;
 
     private TranslationService translationService;
     private final Usuari user;
@@ -45,7 +45,7 @@ public class Buscaminas extends JDialog {
         setJMenuBar(menuBar);
         
         translatePage();
-        //Seleccionar idioma del panel superior
+        //Seleccionar idioma del panel superior para ponerle redondita
         for (int i = 0; i < jMenuLanguage.getMenuComponentCount(); i++) {
             java.awt.Component component = jMenuLanguage.getMenuComponent(i);
 
