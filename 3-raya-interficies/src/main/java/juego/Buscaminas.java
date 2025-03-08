@@ -409,6 +409,9 @@ public class Buscaminas extends JDialog {
     }//GEN-LAST:event_changeLenguage
 
     private void translatePage() {
+        setTitle(translationService.translate("TITLE.MINESWEEPER"));
+        
+        //Traducción MenuBar
         jMenuNavigator.setText(translationService.translate("{TOPBAR.NAVIGATOR}"));
         jMenuItem3Raya.setText(translationService.translate("{TICTACTOE}"));
         jMenuItem4Raya.setText(translationService.translate("{CONNECTFOUR}"));

@@ -1,21 +1,15 @@
 package vista;
 
 import java.awt.Image;
-import java.awt.List;
 import java.sql.SQLException;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JRadioButtonMenuItem;
 import juego.Buscaminas;
-import juego.CuatroEnRaya;
 import juego.ElegirSimbolo;
-import juego.TresEnRaya;
 import model.Usuari;
 import org.openide.util.Exceptions;
 import services.TranslationService;
-import persistence.GameDAO;
 
 public class GameSelectorGUI extends javax.swing.JFrame {
 
@@ -357,8 +351,9 @@ public class GameSelectorGUI extends javax.swing.JFrame {
             Highscores leaderboard = new Highscores(this, translationService);
             this.setVisible(false);
             leaderboard.setVisible(true);
+            this.setVisible(false);
         } catch (SQLException ex) {
-            Exceptions.printStackTrace(ex);
+            System.out.println(ex.getMessage());
         }
 
     }//GEN-LAST:event_jMenuItemLeaderboardActionPerformed
@@ -366,16 +361,19 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     private void jMenuItem3RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3RayaActionPerformed
         ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, true);
         elegirSimbolo.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem3RayaActionPerformed
 
     private void jMenuItem4RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4RayaActionPerformed
         ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, false);
         elegirSimbolo.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem4RayaActionPerformed
 
     private void jMenuItemMineSweeperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMineSweeperActionPerformed
         Buscaminas ventana = new Buscaminas(this, translationService, user);
         ventana.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuItemMineSweeperActionPerformed
 
     

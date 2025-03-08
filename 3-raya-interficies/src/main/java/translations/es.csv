@@ -8,6 +8,9 @@
 {TITLE.LOGIN},Inicio de sesión
 {TITLE.REGISTER},Registro de usuario
 {TITLE.GAMESELECTOR},Selección de juego
+{TITLE.TICTACTOE},Tres en Raya
+{TITLE.CONNECTFOUR},Conecta 4
+{TITLE.MINESWEEPER},Busca Minas
 {NICKNAME},Apodo
 {PASSWORD},Contraseña
 {EMAIL},Email
@@ -29,12 +32,14 @@
 {ERROR.DUPLICATEDNICK},Ya existe un usuario con el mismo apodo
 {ERROR.WRONGLOGIN},Usuario o contraseña incorrectos
 {ERROR.UNKNOWN},Error desconocido
-{TICTACTOE.LOSE},
-{TICTACTOE.WIN},
-{CONNECTFOUR.LOSE},
-{CONNECTFOUR.WIN},
-{MINESWEEPER.LOSE},
-{MINESWEEPER.WIN},
+{TICTACTOE.WIN},¡Gana
+{TICTACTOE.ISTURN},Turno de:
+{TICTACTOE.CLOSE},Cerrar juego
+{TICTACTOE.RESTART},Reiniciar partida
+{CONNECTFOUR.LOSE},¡Has perdido!
+{CONNECTFOUR.WIN},¡Has ganado!
+{MINESWEEPER.LOSE},Has pisado una mina :(
+{MINESWEEPER.WIN},Has ganado :D
 {LEADERBORD.POSITION},Puesto
 {LEADERBORD.PLAYER},Jugador
 {LEADERBORD.PERCENTAGE},% Victorias
