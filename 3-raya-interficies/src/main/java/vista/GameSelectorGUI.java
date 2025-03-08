@@ -328,16 +328,19 @@ public class GameSelectorGUI extends javax.swing.JFrame {
     private void jButton3RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3RayaActionPerformed
         ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, true);
         elegirSimbolo.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_jButton3RayaActionPerformed
 
     private void jButton4RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4RayaActionPerformed
         ElegirSimbolo elegirSimbolo = new ElegirSimbolo(this, translationService, user, false);
         elegirSimbolo.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_jButton4RayaActionPerformed
 
     private void jButtonMineSweeperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMineSweeperActionPerformed
         Buscaminas minesweeper = new Buscaminas(this, translationService, user);
         minesweeper.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_jButtonMineSweeperActionPerformed
 
     private void jMenuItemLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLogOutActionPerformed

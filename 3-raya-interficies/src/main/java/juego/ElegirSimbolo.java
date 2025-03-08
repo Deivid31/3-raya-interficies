@@ -1,31 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
 package juego;
 
 import javax.swing.JFrame;
 import model.Usuari;
 import services.TranslationService;
 
-/**
- *
- * @author Admin
- */
+
 public class ElegirSimbolo extends javax.swing.JDialog {
-private JFrame parent;
+
+    private JFrame parent;
     private Usuari user;
     private TranslationService translationService;
     private boolean juego;
-    /**
-     
-Creates new form ElegirSimbolo*/
-  public ElegirSimbolo(java.awt.Frame parent,TranslationService translationService, Usuari user,  boolean juego) {
-      this.parent = this.parent;
-      this.translationService = translationService;
-      this.user = user;
-      this.juego = juego;
-      initComponents();}
+
+
+    public ElegirSimbolo(java.awt.Frame parent, TranslationService translationService, Usuari user, boolean juego) {
+        this.parent = this.parent;
+        this.translationService = translationService;
+        this.user = user;
+        this.juego = juego;
+        initComponents();
+        translatePage();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,7 +33,7 @@ Creates new form ElegirSimbolo*/
 
         jButtonO = new javax.swing.JButton();
         jButtonX = new javax.swing.JButton();
-        jLabelNick = new javax.swing.JLabel();
+        jLabelText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -62,9 +57,9 @@ Creates new form ElegirSimbolo*/
             }
         });
 
-        jLabelNick.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabelNick.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNick.setText("Elige el símbolo:");
+        jLabelText.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabelText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelText.setText("Elige un símbolo:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,7 +67,7 @@ Creates new form ElegirSimbolo*/
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelNick, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addComponent(jLabelText, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(165, 165, 165)
@@ -85,7 +80,7 @@ Creates new form ElegirSimbolo*/
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabelNick)
+                .addComponent(jLabelText)
                 .addGap(40, 40, 40)
                 .addComponent(jButtonX, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
@@ -101,7 +96,7 @@ Creates new form ElegirSimbolo*/
             CuatroEnRaya connect4 = new CuatroEnRaya(parent, translationService, user, false);
             connect4.setVisible(true);
             this.dispose();
-        }else{
+        } else {
             TresEnRaya connect4 = new TresEnRaya(parent, translationService, user, false);
             connect4.setVisible(true);
             this.dispose();
@@ -112,20 +107,20 @@ Creates new form ElegirSimbolo*/
         if (juego == false) {
             CuatroEnRaya connect4 = new CuatroEnRaya(parent, translationService, user, true);
             connect4.setVisible(true);
-        }else{
+        } else {
             TresEnRaya connect4 = new TresEnRaya(parent, translationService, user, true);
             connect4.setVisible(true);
         }
     }//GEN-LAST:event_jButtonXActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonO;
     private javax.swing.JButton jButtonX;
-    private javax.swing.JLabel jLabelNick;
+    private javax.swing.JLabel jLabelText;
     // End of variables declaration//GEN-END:variables
+
+    private void translatePage() {
+        jLabelText.setText(translationService.translate("{CHOOSESYMBOL}"));
+    }
 }
