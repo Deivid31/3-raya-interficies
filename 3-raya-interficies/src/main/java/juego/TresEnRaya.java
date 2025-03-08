@@ -15,6 +15,7 @@ import model.Usuari;
 import org.openide.util.Exceptions;
 import persistence.GameDAO;
 import services.TranslationService;
+import vista.GameSelectorGUI;
 import vista.Highscores;
 import vista.LoginGUI;
 
@@ -143,6 +144,11 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
         jMenuItemDeleteAccount = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jButton1.setText("jButton1");
 
@@ -417,6 +423,11 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
         this.dispose();
     }//GEN-LAST:event_jMenuItemLogOutActionPerformed
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GameSelectorGUI gs = new GameSelectorGUI(null, translationService, user);
+        gs.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
+
     /**
      * @param args the command line arguments
      */
@@ -466,11 +477,7 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JLabel jLabel_Turno;
     private javax.swing.JMenu jMenuAccount;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItem3Raya;
-    private javax.swing.JMenuItem jMenuItem3Raya1;
     private javax.swing.JMenuItem jMenuItem3Raya2;
     private javax.swing.JMenuItem jMenuItem4Raya;
     private javax.swing.JMenuItem jMenuItemDeleteAccount;
@@ -478,8 +485,6 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JMenuItem jMenuItemLogOut;
     private javax.swing.JMenuItem jMenuItemMineSweeper;
     private javax.swing.JMenu jMenuLanguage;
-    private javax.swing.JMenu jMenuNavigator;
-    private javax.swing.JMenu jMenuNavigator1;
     private javax.swing.JMenu jMenuNavigator2;
     private javax.swing.JRadioButtonMenuItem jRadioButton1;
     private javax.swing.JRadioButtonMenuItem jRadioButton2;

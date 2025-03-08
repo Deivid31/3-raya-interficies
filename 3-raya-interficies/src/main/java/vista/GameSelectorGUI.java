@@ -8,7 +8,6 @@ import javax.swing.JRadioButtonMenuItem;
 import juego.Buscaminas;
 import juego.ElegirSimbolo;
 import model.Usuari;
-import org.openide.util.Exceptions;
 import services.TranslationService;
 
 public class GameSelectorGUI extends javax.swing.JFrame {

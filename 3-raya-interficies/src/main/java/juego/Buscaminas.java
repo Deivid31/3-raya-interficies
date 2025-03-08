@@ -9,6 +9,7 @@ import model.Usuari;
 import org.openide.util.Exceptions;
 import persistence.GameDAO;
 import services.TranslationService;
+import vista.GameSelectorGUI;
 import vista.Highscores;
 import vista.LoginGUI;
 
@@ -209,6 +210,11 @@ public class Buscaminas extends JDialog {
         jMenuItemDeleteAccount = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -223,7 +229,7 @@ public class Buscaminas extends JDialog {
 
         jMenuNavigator.setText("Navigator");
 
-        jMenuItem3Raya.setText(null);
+        jMenuItem3Raya.setText("null");
         jMenuItem3Raya.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3RayaActionPerformed(evt);
@@ -231,7 +237,7 @@ public class Buscaminas extends JDialog {
         });
         jMenuNavigator.add(jMenuItem3Raya);
 
-        jMenuItem4Raya.setText(null);
+        jMenuItem4Raya.setText("null");
         jMenuItem4Raya.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4RayaActionPerformed(evt);
@@ -239,7 +245,7 @@ public class Buscaminas extends JDialog {
         });
         jMenuNavigator.add(jMenuItem4Raya);
 
-        jMenuItemMineSweeper.setText(null);
+        jMenuItemMineSweeper.setText("null");
         jMenuItemMineSweeper.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemMineSweeperActionPerformed(evt);
@@ -247,7 +253,7 @@ public class Buscaminas extends JDialog {
         });
         jMenuNavigator.add(jMenuItemMineSweeper);
 
-        jMenuItemLeaderboard.setText(null);
+        jMenuItemLeaderboard.setText("null");
         jMenuItemLeaderboard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemLeaderboardActionPerformed(evt);
@@ -265,7 +271,7 @@ public class Buscaminas extends JDialog {
         });
 
         buttonGroupLanguage.add(jRadioButton1);
-        jRadioButton1.setText(null);
+        jRadioButton1.setText("null");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeLenguage(evt);
@@ -274,7 +280,7 @@ public class Buscaminas extends JDialog {
         jMenuLanguage.add(jRadioButton1);
 
         buttonGroupLanguage.add(jRadioButton2);
-        jRadioButton2.setText(null);
+        jRadioButton2.setText("null");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeLenguage(evt);
@@ -283,7 +289,7 @@ public class Buscaminas extends JDialog {
         jMenuLanguage.add(jRadioButton2);
 
         buttonGroupLanguage.add(jRadioButton3);
-        jRadioButton3.setText(null);
+        jRadioButton3.setText("null");
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeLenguage(evt);
@@ -292,7 +298,7 @@ public class Buscaminas extends JDialog {
         jMenuLanguage.add(jRadioButton3);
 
         buttonGroupLanguage.add(jRadioButton4);
-        jRadioButton4.setText(null);
+        jRadioButton4.setText("null");
         jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeLenguage(evt);
@@ -301,7 +307,7 @@ public class Buscaminas extends JDialog {
         jMenuLanguage.add(jRadioButton4);
 
         buttonGroupLanguage.add(jRadioButton5);
-        jRadioButton5.setText(null);
+        jRadioButton5.setText("null");
         jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeLenguage(evt);
@@ -310,7 +316,7 @@ public class Buscaminas extends JDialog {
         jMenuLanguage.add(jRadioButton5);
 
         buttonGroupLanguage.add(jRadioButton6);
-        jRadioButton6.setText(null);
+        jRadioButton6.setText("null");
         jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeLenguage(evt);
@@ -319,7 +325,7 @@ public class Buscaminas extends JDialog {
         jMenuLanguage.add(jRadioButton6);
 
         buttonGroupLanguage.add(jRadioButton7);
-        jRadioButton7.setText(null);
+        jRadioButton7.setText("null");
         jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeLenguage(evt);
@@ -331,7 +337,7 @@ public class Buscaminas extends JDialog {
 
         jMenuAccount.setText("Cuenta");
 
-        jMenuItemLogOut.setText(null);
+        jMenuItemLogOut.setText("null");
         jMenuItemLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemLogOutActionPerformed(evt);
@@ -339,7 +345,7 @@ public class Buscaminas extends JDialog {
         });
         jMenuAccount.add(jMenuItemLogOut);
 
-        jMenuItemDeleteAccount.setText(null);
+        jMenuItemDeleteAccount.setText("null");
         jMenuAccount.add(jMenuItemDeleteAccount);
 
         jMenuBar1.add(jMenuAccount);
@@ -407,6 +413,11 @@ public class Buscaminas extends JDialog {
         }
         
     }//GEN-LAST:event_changeLenguage
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        GameSelectorGUI gs = new GameSelectorGUI(null, translationService, user);
+        gs.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     private void translatePage() {
         setTitle(translationService.translate("TITLE.MINESWEEPER"));
