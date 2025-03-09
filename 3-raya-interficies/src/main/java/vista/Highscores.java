@@ -35,6 +35,7 @@ public class Highscores extends javax.swing.JFrame {
         this.user = user;
         this.translationService = translationService;
         gameDAO = new GameDAO();
+        translatePage();
         ImageIcon img = new ImageIcon("src\\main\\java\\images\\icon.png");
         setIconImage(img.getImage());
         jTaLeaderboard.setModel(new LeaderboardTableModel(gameDAO.getUsers()));
