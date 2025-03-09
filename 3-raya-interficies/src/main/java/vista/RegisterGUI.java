@@ -218,8 +218,11 @@ public class RegisterGUI extends javax.swing.JFrame {
         jButtonCreateUser.setText(translationService.translate("{CREATEUSER}"));
 
         jLabelEmail.setText(translationService.translate("{EMAIL}") + ":");
+        jTextFieldEmail.setName(translationService.translate("{EMAIL}"));
         jLabelNick.setText(translationService.translate("{NICKNAME}") + ":");
+        jTextFieldNick.setName(translationService.translate("{NICKNAME}"));
         jLabelPasswd.setText(translationService.translate("{PASSWORD}") + ":");
+        jPasswordFieldPasswd.setName(translationService.translate("{PASSWORD}"));
     }
     
     
