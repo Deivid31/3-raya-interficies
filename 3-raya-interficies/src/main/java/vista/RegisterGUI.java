@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import model.Usuari;
+import org.netbeans.validation.api.Problems;
 import org.netbeans.validation.api.builtin.stringvalidation.StringValidators;
 import org.netbeans.validation.api.ui.ValidationGroup;
 import org.openide.util.Exceptions;
@@ -34,6 +35,15 @@ public class RegisterGUI extends javax.swing.JFrame {
         valGrp.add(jTextFieldEmail, StringValidators.EMAIL_ADDRESS);
         valGrp.add(jTextFieldNick, StringValidators.REQUIRE_NON_EMPTY_STRING);
         valGrp.add(jPasswordFieldPasswd, StringValidators.REQUIRE_NON_EMPTY_STRING);
+        
+        jButtonCreateUser.setEnabled(false);
+        
+        // Si hay problemas (errores), el botón se deshabilita para que la gente
+        // no pueda crear usuarios erróneos
+        validationPanel.addChangeListener(e -> {
+            
+            jButtonCreateUser.setEnabled(validationPanel.getProblem() == null);
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -202,8 +212,6 @@ public class RegisterGUI extends javax.swing.JFrame {
     private void translatePage() {
         this.setTitle(translationService.translate("{TITLE.REGISTER}"));
         
-
-        
         jButtonLogin.setText(translationService.translate("{LOGIN}"));
         jButtonCreateUser.setText(translationService.translate("{CREATEUSER}"));
         
@@ -226,10 +234,4 @@ public class RegisterGUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNick;
     private org.netbeans.validation.api.ui.swing.ValidationPanel validationPanel;
     // End of variables declaration//GEN-END:variables
-
-    
-    
-    
-    
-    
 }
