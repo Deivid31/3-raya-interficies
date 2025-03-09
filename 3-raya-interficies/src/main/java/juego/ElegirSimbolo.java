@@ -95,11 +95,9 @@ public class ElegirSimbolo extends javax.swing.JDialog {
         if (juego == false) {
             CuatroEnRaya connect4 = new CuatroEnRaya(parent, translationService, user, false);
             connect4.setVisible(true);
-            this.dispose();
         } else {
             TresEnRaya connect4 = new TresEnRaya(parent, translationService, user, false);
             connect4.setVisible(true);
-            this.dispose();
         }
     }//GEN-LAST:event_jButtonOActionPerformed
 

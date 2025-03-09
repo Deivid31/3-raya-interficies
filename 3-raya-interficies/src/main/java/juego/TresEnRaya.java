@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -44,6 +45,9 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
         }
         turnoX = true;
         cambiarTexto();
+        if (turnoX != symbol) {
+            hacerMovimientoIA();
+        }
     }
 
     private void cambiarTexto() {
@@ -504,7 +508,52 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JRadioButtonMenuItem jRadioButton7;
     private javax.swing.JButton reiniciar_jButton;
     // End of variables declaration//GEN-END:variables
+    private void hacerMovimientoIA() {
+        if (esEmpate() || hayGanador()) {
+            return;
+        }
 
+        Random random = new Random();
+        int fila, columna;
+        do {
+            fila = random.nextInt(3);
+            columna = random.nextInt(3);
+        } while (!botones[fila][columna].getText().equals(""));
+
+        botones[fila][columna].setText(turnoX ? "X" : "O");
+        botones[fila][columna].setBorder(new LineBorder(turnoX ? Color.RED : Color.BLUE, 2));
+        botones[fila][columna].setForeground(turnoX ? Color.RED : Color.BLUE);
+
+        if (hayGanador()) {
+                JOptionPane.showMessageDialog(this, translationService.translate("{TICTACTOE.WIN}") + " " + (turnoX ? "X" : "O") + "!");
+                try {
+                    if (turnoX == symbol) {
+                        dao.result(user, 1);
+                    } else {
+                        dao.result(user, 0);
+                    }
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+                }
+                reiniciarJuego();
+                return;
+            }
+
+        // Verificar si hay empate
+        if (esEmpate()) {
+            JOptionPane.showMessageDialog(this, "¡Empate!");
+            try {
+                dao.result(user, 0);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+            }
+            reiniciarJuego();
+            return;
+        }
+
+        turnoX = !turnoX;
+        cambiarTexto();
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton botonPresionado = (JButton) e.getSource();
@@ -519,7 +568,6 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
             this.setVisible(false);
             return;
         }
-
         // Para evitar que se sobrescriban jugadas
         if (!botonPresionado.getText().equals("")) {
             return;
@@ -560,10 +608,13 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
             reiniciarJuego();
             return;
         }
-
+        
         // Cambiar turno
         turnoX = !turnoX;
         cambiarTexto();
+        if (turnoX != symbol) {
+            hacerMovimientoIA();
+        }
     }
 
     private void translatePage() {

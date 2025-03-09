@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -74,8 +75,38 @@ public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener 
         
         pack();
         setLocationRelativeTo(null);
+        reiniciarJuego();
     }
+    private void hacerMovimientoIA() {
+        if (hayGanador()) {
+            return;
+        }
 
+        Random random = new Random();
+        int fila, columna;
+        do {
+            fila = random.nextInt(6);
+            columna = random.nextInt(7);
+        } while (!botones[fila][columna].getText().equals(""));
+
+        botones[fila][columna].setText(turnoX ? "X" : "O");
+        botones[fila][columna].setForeground(Color.WHITE);
+        botones[fila][columna].setBackground(turnoX ? Color.RED : Color.BLUE);
+
+        if (hayGanador()) {
+            JOptionPane.showMessageDialog(this, translationService.translate("{CONNECT4.WIN}") + " " + (turnoX ? "X" : "O") + "!");
+            try {
+                if (turnoX == symbol) dao.result(user, 1);
+                else dao.result(user, 0);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+            }
+            reiniciarJuego();
+            return;
+        }
+
+        turnoX = !turnoX;
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         for (int j = 0; j < COLUMNAS; j++) {
@@ -84,9 +115,8 @@ public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener 
                     botones[i][j].setText(turnoX ? "X" : "O");
                     botones[i][j].setForeground(Color.WHITE);
                     botones[i][j].setBackground(turnoX ? Color.RED : Color.BLUE);
-                    //botones[i][j].setBorder(new LineBorder(turnoX ? Color.RED : Color.BLUE, 1));
                     if (hayGanador()) {
-                        JOptionPane.showMessageDialog(this, "¡Gana " + (turnoX ? "X" : "O") + "!");
+                        JOptionPane.showMessageDialog(this, translationService.translate("{CONNECT4.WIN}") + " " + (turnoX ? "X" : "O") + "!");
                         try {
                             if (turnoX == symbol) dao.result(user, 1);
                             else dao.result(user, 0);
@@ -97,6 +127,9 @@ public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener 
                         return;
                     }
                     turnoX = !turnoX;
+                    if (turnoX != symbol) {
+                        hacerMovimientoIA();
+                    }
                     return;
                 }
             }
@@ -143,6 +176,9 @@ public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener 
             }
         }
         turnoX = true;
+        if (turnoX != symbol) {
+            hacerMovimientoIA();
+        }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
