@@ -1,16 +1,11 @@
 package vista;
 
-import java.awt.Color;
-import java.awt.event.KeyEvent;
 import java.sql.SQLException;
-import javax.swing.BorderFactory;
+import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.border.Border;
 import model.Usuari;
-import org.netbeans.validation.api.Problems;
 import org.netbeans.validation.api.builtin.stringvalidation.StringValidators;
 import org.netbeans.validation.api.ui.ValidationGroup;
 import org.openide.util.Exceptions;
@@ -18,6 +13,7 @@ import persistence.GameDAO;
 import services.TranslationService;
 
 public class RegisterGUI extends javax.swing.JFrame {
+
     private ValidationGroup valGrp;
     private JFrame parent;
     private GameDAO gameDAO;
@@ -29,19 +25,22 @@ public class RegisterGUI extends javax.swing.JFrame {
         this.translationService = translationService;
         ImageIcon img = new ImageIcon("src\\main\\java\\images\\icon.png");
         setIconImage(img.getImage());
-        translatePage();
         valGrp = validationPanel.getValidationGroup();
         gameDAO = new GameDAO();
+        translatePage();
+        
+        
         valGrp.add(jTextFieldEmail, StringValidators.EMAIL_ADDRESS);
         valGrp.add(jTextFieldNick, StringValidators.REQUIRE_NON_EMPTY_STRING);
         valGrp.add(jPasswordFieldPasswd, StringValidators.REQUIRE_NON_EMPTY_STRING);
         
-        jButtonCreateUser.setEnabled(false);
+        
         
         // Si hay problemas (errores), el botón se deshabilita para que la gente
         // no pueda crear usuarios erróneos
-        validationPanel.addChangeListener(e -> {
-            
+        jButtonCreateUser.setEnabled(false);
+        
+        validationPanel.addChangeListener(event -> {
             jButtonCreateUser.setEnabled(validationPanel.getProblem() == null);
         });
     }
@@ -52,14 +51,14 @@ public class RegisterGUI extends javax.swing.JFrame {
 
         jButtonCreateUser = new javax.swing.JButton();
         jButtonLogin = new javax.swing.JButton();
+        jLabelEmail = new javax.swing.JLabel();
+        jTextFieldEmail = new javax.swing.JTextField();
         jLabelNick = new javax.swing.JLabel();
         jTextFieldNick = new javax.swing.JTextField();
         jLabelPasswd = new javax.swing.JLabel();
         jPasswordFieldPasswd = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jLabelEmail = new javax.swing.JLabel();
-        jTextFieldEmail = new javax.swing.JTextField();
         validationPanel = new org.netbeans.validation.api.ui.swing.ValidationPanel();
         jComboBoxLang = new javax.swing.JComboBox<>();
 
@@ -83,6 +82,12 @@ public class RegisterGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabelEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabelEmail.setText("Email:");
+
+        jTextFieldEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextFieldEmail.setName("email"); // NOI18N
+
         jLabelNick.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelNick.setText("Apodo:");
 
@@ -92,11 +97,6 @@ public class RegisterGUI extends javax.swing.JFrame {
         jLabelPasswd.setText("Contraseña:");
 
         jPasswordFieldPasswd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabelEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabelEmail.setText("Email:");
-
-        jTextFieldEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         validationPanel.setBorder(null);
 
@@ -185,10 +185,10 @@ public class RegisterGUI extends javax.swing.JFrame {
 
     private void jButtonCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateUserActionPerformed
         try {
-            if(gameDAO.checkUserByEmail(jTextFieldEmail.getText().toLowerCase())) {
+            if (gameDAO.checkUserByEmail(jTextFieldEmail.getText().toLowerCase())) {
                 JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.DUPLICATEDEMAIL}"), "", JOptionPane.ERROR_MESSAGE);
             } else {
-                if(gameDAO.checkUserByNick(jTextFieldNick.getText().toLowerCase())) {
+                if (gameDAO.checkUserByNick(jTextFieldNick.getText().toLowerCase())) {
                     JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.DUPLICATEDNICK}"), "", JOptionPane.WARNING_MESSAGE);
                 } else {
                     gameDAO.addUser(new Usuari(jTextFieldEmail.getText(), jTextFieldNick.getText().toLowerCase(), jPasswordFieldPasswd.getText()));
@@ -210,15 +210,21 @@ public class RegisterGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxLangPopupMenuWillBecomeInvisible
 
     private void translatePage() {
-        this.setTitle(translationService.translate("{TITLE.REGISTER}"));
+        Locale.setDefault(new Locale(translationService.getLanguage()));
         
+        this.setTitle(translationService.translate("{TITLE.REGISTER}"));
+
         jButtonLogin.setText(translationService.translate("{LOGIN}"));
         jButtonCreateUser.setText(translationService.translate("{CREATEUSER}"));
-        
+
         jLabelEmail.setText(translationService.translate("{EMAIL}") + ":");
         jLabelNick.setText(translationService.translate("{NICKNAME}") + ":");
         jLabelPasswd.setText(translationService.translate("{PASSWORD}") + ":");
     }
+    
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCreateUser;
