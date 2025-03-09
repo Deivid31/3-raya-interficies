@@ -8,9 +8,9 @@
 {TITLE.LOGIN},Вход
 {TITLE.REGISTER},Регистрация пользователя
 {TITLE.GAMESELECTOR},Выбор игры
-{TITLE.TICTACTOE},
-{TITLE.CONNECTFOUR},
-{TITLE.MINESWEEPER},
+{TITLE.TICTACTOE},Крестики-нолики
+{TITLE.CONNECTFOUR},Соединить 4
+{TITLE.MINESWEEPER},Сапер
 {NICKNAME},Псевдоним
 {PASSWORD},Пароль
 {EMAIL},Электронная почта

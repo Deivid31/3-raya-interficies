@@ -8,9 +8,9 @@
 {TITLE.LOGIN},تسجيل الدخول
 {TITLE.REGISTER},تسجيل المستخدم
 {TITLE.GAMESELECTOR},اختيار اللعبة
-{TITLE.TICTACTOE},
-{TITLE.CONNECTFOUR},
-{TITLE.MINESWEEPER},
+{TITLE.TICTACTOE},تيك تاك تو
+{TITLE.CONNECTFOUR},كونيكت فور
+{TITLE.MINESWEEPER},سالك الألغام
 {NICKNAME},اسم مستعار
 {PASSWORD},كلمة المرور
 {EMAIL},البريد الإلكتروني

@@ -8,9 +8,9 @@
 {TITLE.LOGIN},Inici de sessió
 {TITLE.REGISTER},Registre d'usuari
 {TITLE.GAMESELECTOR},Selector de joc
-{TITLE.TICTACTOE},
-{TITLE.CONNECTFOUR},
-{TITLE.MINESWEEPER},
+{TITLE.TICTACTOE},Tres en línia
+{TITLE.CONNECTFOUR},Connecta 4
+{TITLE.MINESWEEPER},Cercador de mines
 {NICKNAME},Pseudonim
 {PASSWORD},Contrasenya
 {EMAIL},Correu

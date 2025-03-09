@@ -210,7 +210,12 @@ public class RegisterGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxLangPopupMenuWillBecomeInvisible
 
     private void translatePage() {
+        //Teóricamente Pedro nos dijo que así debería funcionar
         Locale.setDefault(new Locale(translationService.getLanguage()));
+        validationPanel.validate();
+        validationPanel.repaint();
+        validate();
+        repaint();
         
         this.setTitle(translationService.translate("{TITLE.REGISTER}"));
 
