@@ -44,19 +44,6 @@ public class Highscores extends javax.swing.JFrame {
         for (int i = 0; i < jTaLeaderboard.getColumnCount(); i++) { // Recorrido de las filas, para marcar los colores de los Top 3
             jTaLeaderboard.getColumnModel().getColumn(i).setCellRenderer(leaderboardColor);
         }
-        
-        translatePage();
-        //Seleccionar idioma del panel superior para ponerle redondita
-        for (int i = 0; i < jMenuLanguage.getMenuComponentCount(); i++) {
-            java.awt.Component component = jMenuLanguage.getMenuComponent(i);
-
-            if (component instanceof JRadioButtonMenuItem radioButton) {
-                String temp = radioButton.getText().split("\\|")[0];
-                if (translationService.getLanguage().equalsIgnoreCase(temp))
-                    radioButton.setSelected(true);
-            }
-        }
-        
     }
     
     /*Funcion para ajustar el ancho de las columnas clasificatorias, respecto al texto de la cabecera inicialmente, y
@@ -144,7 +131,7 @@ public class Highscores extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTaLeaderboard);
 
-        jLabelNick.setText("Apodo:");
+        jLabelNick.setText("jLabel1");
 
         jTextFieldNick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,12 +365,7 @@ public class Highscores extends javax.swing.JFrame {
     // Funcion para cambiar el texto de los diversos campos/componentes
     private void translatePage() {
         this.setTitle(translationService.translate("{TITLE.GAMESELECTOR}"));
-        
-        jLabelNick.setText(translationService.translate("{NICKNAME}") + ":");
-        LeaderboardTableModel model = (LeaderboardTableModel) jTaLeaderboard.getModel();
-        model.translateColumns(translationService);
 
-        //Traducción MenuBar
         jMenuNavigator.setText(translationService.translate("{TOPBAR.NAVIGATOR}"));
         jMenuItem3Raya.setText(translationService.translate("{TICTACTOE}"));
         jMenuItem4Raya.setText(translationService.translate("{CONNECTFOUR}"));
