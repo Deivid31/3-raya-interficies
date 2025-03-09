@@ -7,17 +7,19 @@ import javax.swing.table.AbstractTableModel;
 import model.Usuari;
 
 //Configuracion del modelo de la tabla
+import services.TranslationService;
+
 public class LeaderboardTableModel extends AbstractTableModel {
+
     private List<Usuari> leaderboardDelModel;
     private final String[] titolsColumnes = {"Puesto", "Jugador", "% Victorias", "Victorias totales", "Partidas totales"};
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
-    public LeaderboardTableModel(List<Usuari> leaderboard)
-    {
+    public LeaderboardTableModel(List<Usuari> leaderboard) {
         leaderboard.sort(Comparator.comparing(Usuari::getPorcentaje).reversed());
         this.leaderboardDelModel = leaderboard;
     }
-    
+
     @Override
     public int getRowCount() {
         return leaderboardDelModel.size();
@@ -44,9 +46,19 @@ public class LeaderboardTableModel extends AbstractTableModel {
         }
         return null;
     }
-    
+
     @Override
     public String getColumnName(int column) {
         return titolsColumnes[column];
     }
+
+    public void translateColumns(TranslationService translationService) {
+        titolsColumnes[0] = translationService.translate("{LEADERBORD.POSITION}");
+        titolsColumnes[1] = translationService.translate("{LEADERBORD.PLAYER}");
+        titolsColumnes[2] = translationService.translate("{LEADERBORD.PERCENTAGE}");
+        titolsColumnes[3] = translationService.translate("{LEADERBORD.VICTORIES}");
+        titolsColumnes[4] = translationService.translate("{LEADERBORD.GAMES}");
+        fireTableStructureChanged();
+    }
+
 }
