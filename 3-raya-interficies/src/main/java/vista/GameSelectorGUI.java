@@ -366,7 +366,6 @@ public class GameSelectorGUI extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-
     }//GEN-LAST:event_jMenuItemLeaderboardActionPerformed
 
     private void jMenuItem3RayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3RayaActionPerformed
