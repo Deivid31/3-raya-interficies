@@ -111,7 +111,7 @@ public class TranslationService {
                 return english.getOrDefault(str, str);
             case "ESP":
                 return spanish.getOrDefault(str, str);
-            case "FRA":
+            case "FRE":
                 return french.getOrDefault(str, str);
             case "GER":
                 return german.getOrDefault(str, str);
