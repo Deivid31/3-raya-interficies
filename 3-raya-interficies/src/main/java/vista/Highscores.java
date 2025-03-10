@@ -365,7 +365,7 @@ public class Highscores extends javax.swing.JFrame {
 
     // Funcion para cambiar el texto de los diversos campos/componentes
     private void translatePage() {
-        this.setTitle(translationService.translate("{TITLE.GAMESELECTOR}"));
+        this.setTitle(translationService.translate("{TITLE.LEADERBOARD}"));
 
         jMenuNavigator.setText(translationService.translate("{TOPBAR.NAVIGATOR}"));
         jMenuItem3Raya.setText(translationService.translate("{TICTACTOE}"));
