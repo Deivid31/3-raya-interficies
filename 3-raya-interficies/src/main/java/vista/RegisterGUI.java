@@ -191,7 +191,7 @@ public class RegisterGUI extends javax.swing.JFrame {
                 if (gameDAO.checkUserByNick(jTextFieldNick.getText().toLowerCase())) {
                     JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.DUPLICATEDNICK}"), "", JOptionPane.WARNING_MESSAGE);
                 } else {
-                    gameDAO.addUser(new Usuari(jTextFieldEmail.getText(), jTextFieldNick.getText().toLowerCase(), jPasswordFieldPasswd.getText()));
+                    gameDAO.addUser(new Usuari(jTextFieldEmail.getText(), jTextFieldNick.getText(), jPasswordFieldPasswd.getText()));
                     JOptionPane.showMessageDialog(this, translationService.translate("{SUCCESSREGISTER}"), "", JOptionPane.INFORMATION_MESSAGE);
                     parent.setVisible(true);
                     this.dispose();
@@ -218,6 +218,16 @@ public class RegisterGUI extends javax.swing.JFrame {
         repaint();
         
         this.setTitle(translationService.translate("{TITLE.REGISTER}"));
+        
+        jComboBoxLang.removeAllItems();
+        jComboBoxLang.addItem(translationService.translate("{SELECTLANGUAGE}") + "...");
+        jComboBoxLang.addItem("ARB| " + translationService.translate("{LANGUAGE.ARAB}"));
+        jComboBoxLang.addItem("CAT| " + translationService.translate("{LANGUAGE.CATALAN}"));
+        jComboBoxLang.addItem("ENG| " + translationService.translate("{LANGUAGE.ENGLISH}"));
+        jComboBoxLang.addItem("ESP| " + translationService.translate("{LANGUAGE.SPANISH}"));
+        jComboBoxLang.addItem("FRE| " + translationService.translate("{LANGUAGE.FRENCH}"));
+        jComboBoxLang.addItem("GER| " + translationService.translate("{LANGUAGE.GERMAN}"));
+        jComboBoxLang.addItem("RUS| " + translationService.translate("{LANGUAGE.RUSSIAN}"));
 
         jButtonLogin.setText(translationService.translate("{LOGIN}"));
         jButtonCreateUser.setText(translationService.translate("{CREATEUSER}"));

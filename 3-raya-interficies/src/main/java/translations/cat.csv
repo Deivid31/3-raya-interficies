@@ -34,6 +34,8 @@
 {ERROR.DUPLICATEDNICK},Ja existeix un usuari amb aquest pseudònim
 {ERROR.WRONGLOGIN},Usuari o contrasenya incorrectes
 {ERROR.UNKNOWN},Error desconegut
+{ERROR.RESSQL},S'ha produït un error en desar la informació a la base de dades
+{CHOOSESYMBOL},Tria un símbol:
 {TICTACTOE.WIN},Guanya!  
 {TICTACTOE.ISTURN},Torn de:  
 {TICTACTOE.CLOSE},Tancar joc  

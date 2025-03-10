@@ -34,6 +34,8 @@
 {ERROR.DUPLICATEDNICK},Un utilisateur avec ce pseudo existe déjà
 {ERROR.WRONGLOGIN},Nom d'utilisateur ou mot de passe incorrect
 {ERROR.UNKNOWN},Erreur inconnue
+{ERROR.RESSQL},Une erreur est survenue lors de l'enregistrement des informations dans la base de données
+{CHOOSESYMBOL},Choisissez un symbole:
 {TICTACTOE.WIN},Gagne!  
 {TICTACTOE.ISTURN},Tour de :  
 {TICTACTOE.CLOSE},Fermer le jeu  

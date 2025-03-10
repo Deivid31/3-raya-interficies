@@ -34,6 +34,8 @@
 {ERROR.DUPLICATEDNICK},Пользователь с таким псевдонимом уже существует
 {ERROR.WRONGLOGIN},Неверное имя пользователя или пароль
 {ERROR.UNKNOWN},Неизвестная ошибка
+{ERROR.RESSQL},Произошла ошибка при сохранении информации в базу данных
+{CHOOSESYMBOL},Выберите символ:
 {TICTACTOE.WIN},Победил!  
 {TICTACTOE.ISTURN},Ходит:  
 {TICTACTOE.CLOSE},Закрыть игру  

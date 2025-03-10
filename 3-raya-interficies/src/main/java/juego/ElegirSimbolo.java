@@ -99,6 +99,7 @@ public class ElegirSimbolo extends javax.swing.JDialog {
             TresEnRaya connect4 = new TresEnRaya(parent, translationService, user, false);
             connect4.setVisible(true);
         }
+        this.dispose();
     }//GEN-LAST:event_jButtonOActionPerformed
 
     private void jButtonXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonXActionPerformed
@@ -109,6 +110,7 @@ public class ElegirSimbolo extends javax.swing.JDialog {
             TresEnRaya connect4 = new TresEnRaya(parent, translationService, user, true);
             connect4.setVisible(true);
         }
+        this.dispose();
     }//GEN-LAST:event_jButtonXActionPerformed
 
 

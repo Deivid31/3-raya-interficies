@@ -34,6 +34,8 @@
 {ERROR.DUPLICATEDNICK},Ya existe un usuario con el mismo apodo
 {ERROR.WRONGLOGIN},Usuario o contraseña incorrectos
 {ERROR.UNKNOWN},Error desconocido
+{ERROR.RESSQL},Ha ocurrido un error al guardar la información en la base de datos
+{CHOOSESYMBOL},Elige un símbolo:
 {TICTACTOE.WIN},¡Gana
 {TICTACTOE.ISTURN},Turno de:
 {TICTACTOE.CLOSE},Cerrar juego
@@ -46,4 +48,3 @@
 {LEADERBORD.PERCENTAGE},% Victorias
 {LEADERBORD.VICTORIES},Victorias totales
 {LEADERBORD.GAMES},Partidas totales
-{CHOOSESYMBOL},Elige un símbolo:

@@ -99,7 +99,7 @@ public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener 
                 if (turnoX == symbol) dao.result(user, 1);
                 else dao.result(user, 0);
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+                JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.RESSQL}"));
             }
             reiniciarJuego();
             return;
@@ -116,12 +116,12 @@ public class CuatroEnRaya extends javax.swing.JDialog implements ActionListener 
                     botones[i][j].setForeground(Color.WHITE);
                     botones[i][j].setBackground(turnoX ? Color.RED : Color.BLUE);
                     if (hayGanador()) {
-                        JOptionPane.showMessageDialog(this, translationService.translate("{CONNECT4.WIN}") + " " + (turnoX ? "X" : "O") + "!");
+                        JOptionPane.showMessageDialog(this, translationService.translate("{CONNECTFOUR.WIN}") + " " + (turnoX ? "X" : "O") + "!");
                         try {
                             if (turnoX == symbol) dao.result(user, 1);
                             else dao.result(user, 0);
                         } catch (SQLException ex) {
-                            JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+                            JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.RESSQL}"));
                         }
                         reiniciarJuego();
                         return;

@@ -34,6 +34,8 @@
 {ERROR.DUPLICATEDNICK},A user with the same nickname already exists
 {ERROR.WRONGLOGIN},Incorrect username or password
 {ERROR.UNKNOWN},Unknown error
+{ERROR.RESSQL},An error occurred while saving the information to the database
+{CHOOSESYMBOL},Choose a symbol:
 {TICTACTOE.WIN},Wins!  
 {TICTACTOE.ISTURN},Turn of:  
 {TICTACTOE.CLOSE},Close game  

@@ -118,6 +118,11 @@ public class Buscaminas extends JDialog {
         if (esMina[x][y]) {
             mostrarMinas();
             JOptionPane.showMessageDialog(this, translationService.translate("{MINESWEEPER.LOSE}"));
+            try {
+                dao.result(user, 0);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.RESSQL}"));
+            }
             iniciarJuego();
             return;
         }
@@ -139,6 +144,11 @@ public class Buscaminas extends JDialog {
 
         if (celdasReveladas == (filas * columnas - minas)) {
             JOptionPane.showMessageDialog(this, translationService.translate("{MINESWEEPER.WIN}"));
+            try {
+                dao.result(user, 1);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.RESSQL}"));
+            }
             iniciarJuego();
         }
     }
@@ -385,7 +395,7 @@ public class Buscaminas extends JDialog {
             this.setVisible(false);
             leaderboard.setVisible(true);
         } catch (SQLException ex) {
-            Exceptions.printStackTrace(ex);
+            JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.RESSQL}"));
         }
     }//GEN-LAST:event_jMenuItemLeaderboardActionPerformed
 

@@ -34,6 +34,8 @@
 {ERROR.DUPLICATEDNICK},اسم المستخدم موجود بالفعل
 {ERROR.WRONGLOGIN},اسم المستخدم أو كلمة المرور خاطئة
 {ERROR.UNKNOWN},خطأ غير معروف
+{ERROR.RESSQL},حدث خطأ أثناء حفظ المعلومات في قاعدة البيانات
+{CHOOSESYMBOL},اختر رمزًا:
 {TICTACTOE.WIN},فاز!  
 {TICTACTOE.ISTURN},دور:  
 {TICTACTOE.CLOSE},إغلاق اللعبة
@@ -43,6 +45,6 @@
 {MINESWEEPER.WIN},لقد فزت! :D  
 {LEADERBORD.POSITION},المركز
 {LEADERBORD.PLAYER},اللاعب
-{LEADERBORD.PERCENTAGE},% الفوز  
+{LEADERBORD.PERCENTAGE},% الفوز
 {LEADERBORD.VICTORIES},إجمالي الانتصارات
 {LEADERBORD.GAMES},إجمالي المباريات

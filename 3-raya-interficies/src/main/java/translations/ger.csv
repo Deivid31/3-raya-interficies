@@ -34,6 +34,8 @@
 {ERROR.DUPLICATEDNICK},Ein Benutzer mit diesem Spitznamen existiert bereits
 {ERROR.WRONGLOGIN},Benutzername oder Passwort falsch
 {ERROR.UNKNOWN},Unbekannter Fehler
+{ERROR.RESSQL},Ein Fehler ist aufgetreten beim Speichern der Informationen in der Datenbank
+{CHOOSESYMBOL},Wähle ein Symbol:
 {TICTACTOE.WIN},Gewinnt!  
 {TICTACTOE.ISTURN},Am Zug:  
 {TICTACTOE.CLOSE},Spiel schließen  

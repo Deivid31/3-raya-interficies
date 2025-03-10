@@ -533,7 +533,7 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
                         dao.result(user, 0);
                     }
                 } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+                    JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.RESSQL}"));
                 }
                 reiniciarJuego();
                 return;
@@ -545,7 +545,7 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
             try {
                 dao.result(user, 0);
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+                JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.RESSQL}"));
             }
             reiniciarJuego();
             return;
@@ -591,7 +591,7 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
                     dao.result(user, 0);
                 }
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+                JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.RESSQL}"));
             }
             reiniciarJuego();
             return;
@@ -603,7 +603,7 @@ public class TresEnRaya extends javax.swing.JFrame implements ActionListener {
             try {
                 dao.result(user, 0);
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, "Ha ocurrido un error al insertar el resultado en la base de datos.");
+                JOptionPane.showMessageDialog(this, translationService.translate("{ERROR.RESSQL}"));
             }
             reiniciarJuego();
             return;
