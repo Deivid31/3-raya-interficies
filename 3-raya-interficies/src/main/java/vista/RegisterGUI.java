@@ -203,7 +203,7 @@ public class RegisterGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCreateUserActionPerformed
 
     private void jComboBoxLangPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jComboBoxLangPopupMenuWillBecomeInvisible
-        String[] codeLang = {"", "ARB", "CAT", "ENG", "ESP", "FRA", "GER", "RUS"};
+        String[] codeLang = {"", "ARB", "CAT", "ENG", "ESP", "FRE", "GER", "RUS"};
         codeLang[0] = translationService.getLanguage();
         translationService.setLanguage(codeLang[jComboBoxLang.getSelectedIndex()]);
         translatePage();
