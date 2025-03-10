@@ -158,7 +158,7 @@ public class Buscaminas extends JDialog {
 
         if (marcado[x][y]) {
             botones[x][y].setText("");
-            botones[x][y].setBackground(null);
+            botones[x][y].setBackground(new Color(173, 216, 230));
         } else {
             botones[x][y].setBackground(Color.GREEN);
         }
